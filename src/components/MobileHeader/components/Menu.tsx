@@ -29,7 +29,7 @@ export const Menu = (props: any) => {
 
   return (
     <div className='static'>
-        <nav className={`h-full w-80 bg-dark fixed top-20 -right-80 ${open ? 'transition-all duration-500 -translate-x-80' : 'transition-all duration-500 -right-80'}`}>
+        <nav className={`h-full w-80 bg-dark fixed top-20 -right-80 z-50 ${open ? 'transition-all duration-500 -translate-x-80' : 'transition-all duration-500 -right-80'}`}>
             <section className='mt-4'>
                 <div id='us' className='border-b-2 border-light flex justify-between h-9' onClick={(e) => onHandleMenu(e)}>
                     <p id='us' className='text-light text-lg pl-6'>Nosotros</p>

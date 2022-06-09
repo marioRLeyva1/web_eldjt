@@ -8,9 +8,15 @@ module.exports = {
       secondary: '#EA9A28',
       light: '#DFE0DF',
       dark: '#402E32',
-      extra: '#b7521e'
+      extra: '#b7521e',
+      white: '#ffff',
+      totalDark: '#000000'
     },
-    extend: {},
+    extend: {
+      height: {
+        '128': '26rem',
+      },
+    },
   },
   plugins: [
     require('tw-elements/dist/plugin')
