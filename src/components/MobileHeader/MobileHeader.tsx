@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import MenuIcon from '../../icons/menu-icon.svg'
 import ELDJTPNG from '../../../src/icons/eldjt-png.png'
-import Menu from './components/Menu';
+import { Menu } from './components/Menu';
 
-const Header = () => {
+const MobileHeader = () => {
 
     const [openMenu, setOpenMenu] = React.useState(false);
 
@@ -29,15 +29,18 @@ const Header = () => {
         setOpenMenu(openMenu === true ? false : true)
     };
   return (
-    <header className='bg-white h-20 flex justify-between'>
-        <div className='flex justify-center items-center'>
-            <img src={ELDJTPNG} alt='menu' className='h-16 w-16 ml-5'/>
-            <p className='ml-5 text-xl'>ELDJT</p>
-        </div>
-        <img src={MenuIcon} alt='menu' className='p-7' onClick={onHandleMenu}/>
-        <Menu open={openMenu}/>
-    </header>
+    <React.Fragment>
+      <header className='bg-dark h-20 flex justify-between'>
+          <div className='flex justify-center items-left flex-col'>
+              {/* <p className='ml-5 text-light'>ELDJT</p> */}
+              <p className='ml-5 text-light text-lg'>Escuela Libre de Derecho</p>
+              <p className='ml-5 text-light text-xs'> y Jurisprudencia de Tabasco</p>
+          </div>
+          <img src={MenuIcon} alt='menu' className='p-7' onClick={onHandleMenu}/>
+      </header>
+      <Menu open={openMenu}/>
+    </React.Fragment>
   )
 }
 
-export default Header
+export default MobileHeader

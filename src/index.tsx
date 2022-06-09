@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'tw-elements';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './screens/Home/Home';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,7 +14,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App/>}/>
+        <Route path='/' element={<Home/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
