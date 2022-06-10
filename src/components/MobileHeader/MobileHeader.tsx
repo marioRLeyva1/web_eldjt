@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import MenuIcon from '../../icons/menu-icon.svg'
-import ELDJTPNG from '../../../src/icons/eldjt-png.png'
 import { Menu } from './components/Menu';
 
 const MobileHeader = () => {
 
     const [openMenu, setOpenMenu] = React.useState(false);
+    const [menuBG, setMenuBG] = React.useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', listenToScroll);
@@ -21,6 +21,12 @@ const MobileHeader = () => {
       
         const scrolled = winScroll / height
 
+        if (scrolled > 0.20) {
+          setMenuBG(true);
+        }
+        if (scrolled === 0) {
+          setMenuBG(false);
+        }
         console.log('scrolled', scrolled);
         
     };
@@ -30,7 +36,7 @@ const MobileHeader = () => {
     };
   return (
     <React.Fragment>
-      <header className='bg-dark h-20 flex justify-between'>
+      <header className={`bg-dark h-20 flex justify-between shadow-xl sticky`}>
           <div className='flex justify-center items-left flex-col'>
               {/* <p className='ml-5 text-light'>ELDJT</p> */}
               <p className='ml-5 text-light text-lg'>Escuela Libre de Derecho</p>

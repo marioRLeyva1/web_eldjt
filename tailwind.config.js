@@ -10,7 +10,8 @@ module.exports = {
       dark: '#402E32',
       extra: '#b7521e',
       white: '#ffff',
-      totalDark: '#000000'
+      totalDark: '#000000',
+      cream: '#FFE7D3'
     },
     extend: {
       height: {
