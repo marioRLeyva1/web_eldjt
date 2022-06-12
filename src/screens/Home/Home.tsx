@@ -1,28 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MobileHeader from '../../components/MobileHeader/MobileHeader'
-import ELDJTPNG from '../../icons/eldjt-png.png'
+import MobileSlider from './components/MobileSlider'
 import Magistrate from '../../icons/magistrate.svg'
 import Flexibility from '../../icons/work-schedule.svg'
+import EmblaCarousel from '../../components/EmblaCarousel/EmblaCarousel'
 
 const Home = () => {
+
+    const MOBILE_SLIDES = [
+        {key: 1, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F1-mobile.png?alt=media&token=f518073a-8fc9-45dd-bca1-68430759f211'},
+        {key: 2, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F2-mobile.png?alt=media&token=293f1c89-fdc7-4f63-b121-153f0b2c9898'},
+        {key: 3, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F3-mobile.png?alt=media&token=ce94d0be-70d9-44a6-b18f-56c6c8a49f26'}
+    ]
+    
   return (
-    <div className=''>
-        <div className='sm:hidden fixed w-full top-0'>
+      <div className=''>
+        <div className='sm:hidden fixed w-full top-0 z-50'>
             <MobileHeader/>
         </div>
-        <div className='flex flex-col bg-light mt-20'>
-            <img src={ELDJTPNG} alt="eldjt" className='h-96 w-full object-contain'/>
-            <h4 className='font-bold px-14 text-center text-md mb-4'>
+        <div className='flex flex-col bg-light mt-20 '>
+            <EmblaCarousel slides={MOBILE_SLIDES}/>
+            {/* <img src={'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb'} alt="eldjt" className='h-96 w-full object-contain mt-4'/> */}
+            {/* <h4 className='font-bold px-14 text-center text-md mb-4'>
                 <span>Inscríbete durante este mes y obtén </span>
                 <span className='text-secondary'>40% </span>
                 <span>de descuento</span>
-            </h4>
-            <div className='h-full bg-scroll' style={{backgroundImage: 'url(https://boletomovil.s3.amazonaws.com/event-images/desktop_1645058872117)'}}>
-                <h2 className='flex flex-col items-center text-4xl mt-4 font-thin text-light'>
+            </h4> */}
+            <div className='h-full'>
+                <h2 className='flex flex-col items-center text-4xl mt-4 font-thin text-dark'>
                     <span>Oferta</span>
                     <span>Académica</span>
                 </h2>
-                <div className='text-light text-2xl font-thin flex flex-col gap-14 items-center justify-center mt-10'>
+                <div className='text-dark text-2xl font-thin flex flex-col gap-14 items-center justify-center mt-10'>
                     <div className='flex flex-col items-center justify-center'>
                         <img src={Magistrate} alt="graduation-cap" className='h-20 w-24'/>
                         <h5>Licenciaturas</h5>
