@@ -10,12 +10,15 @@ module.exports = {
         light: '#DFE0DF',
         dark: '#402E32',
         extra: '#b7521e',
-        white: '#ffff',
+        white2: '#ffff',
         orange: '#d25112',
         cream: '#FFE7D3'
       },
       height: {
         '128': '26rem',
+      },
+      width: {
+        '1024': '1024px'
       },
       transitionProperty: {
         'index': 'z-index',
