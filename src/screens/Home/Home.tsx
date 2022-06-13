@@ -28,7 +28,7 @@ const Home = () => {
       
         const scrolled = winScroll / height
 
-        if (scrolled > 0.20) {
+        if (scrolled > 0.10) {
           setMenuTransparent(true);
         }
         if (scrolled === 0) {
@@ -60,7 +60,7 @@ const Home = () => {
                 <div className='sm:flex sm:flex-row sm:w-full sm:justify-center sm:items-baseline flex flex-col gap-4 sm:gap-0'>
                     <div className={`flex items-center justify-center sm:w-7/12 sm:h-96 transition hover:scale-105 sm:ml-5`}>
                         <div className='flex flex-col items-center justify-center w-10/12 h-auto border-2 rounded-lg shadow-md bg-slate-50'>
-                            <img src='https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fjavier-trueba-iQPr1XkF5F0-unsplash%20(1).jpg?alt=media&token=f8c5ff0b-a125-4cbb-8659-9a888cf8baf4' alt="graduation-cap" className='rounded-t-lg w-full object-cover h-48'/>
+                            <img src='https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fjavier-trueba-iQPr1XkF5F0-unsplash%20(1).jpg?alt=media&token=f8c5ff0b-a125-4cbb-8659-9a888cf8baf4' alt="graduation-cap" className='rounded-t-lg w-full object-cover h-48 object-top'/>
                             <h5 className='text-2xl pt-3 text-dark '>Licenciaturas</h5>
                             <p className='text-sm sm:text-lg px-10 mt-1 text-center sm:py-1'>Inicia un mundo lleno de posibilidades.</p>
                             <button className='flex items-center justify-center text-xs border-2 rounded px-3 py-1 mt-1 mb-3 bg-secondary text-white shadow sm:text-base sm:rounded-lg '>
@@ -71,7 +71,7 @@ const Home = () => {
                     </div>
                     <div className={`flex items-center justify-center sm:w-7/12 sm:h-96 transition hover:scale-105 sm:mr-5`}>
                         <div className='flex flex-col items-center justify-center w-10/12 h-auto border-2 rounded-lg shadow-md bg-slate-50'>
-                            <img src='https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fjavier-trueba-iQPr1XkF5F0-unsplash%20(1).jpg?alt=media&token=f8c5ff0b-a125-4cbb-8659-9a888cf8baf4' alt="graduation-cap" className='rounded-t-lg w-full object-cover h-48'/>
+                            <img src='https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fdom-fou-YRMWVcdyhmI-unsplash%20(1).jpg?alt=media&token=4bb3c145-10ce-4119-8b75-61ef1d1d42e8' alt="graduation-cap" className='rounded-t-lg w-full object-cover h-48'/>
                             <h5 className='text-2xl pt-3 text-dark '>Posgrados</h5>
                             <p className='text-sm sm:text-lg px-10 mt-1 text-center sm:py-1'>Expande tus límites.</p>
                             <button className='flex items-center justify-center text-xs border-2 rounded px-3 py-1 mt-1 mb-3 bg-secondary text-white shadow sm:text-base sm:rounded-lg '>
