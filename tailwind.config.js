@@ -26,7 +26,10 @@ module.exports = {
       },
       flex:{
         'slider': '0 0 100%'
-      }
+      },
+      backgroundImage: {
+        'stairs': 'url(https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fstairs.png?alt=media&token=69566548-bcf3-495b-aab8-7c7a575ca4ef)'
+      },
     },
   },
   plugins: [

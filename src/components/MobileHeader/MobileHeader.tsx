@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import MenuIcon from '../../icons/menu-icon.svg'
 import { Menu } from './components/Menu';
 

@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import 'tw-elements';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './screens/Home/Home';
-import MobileSlider from './screens/Home/components/MobileSlider';
 import EmblaCarousel from './components/EmblaCarousel/EmblaCarousel';
 
 const root = ReactDOM.createRoot(
