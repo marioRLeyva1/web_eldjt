@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import MobileHeader from '../../components/MobileHeader/MobileHeader'
 import Arrow from '../../icons/arraow.svg'
 import Calendar from '../../icons/calendar.svg'
@@ -9,8 +9,12 @@ import GenericCarousel from '../../components/GenericCarousel/GenericCarousel'
 import Card from '../../components/Card/Card'
 import Input from '../../components/Input/Input'
 import Footer from '../../Footer/Footer'
+import { useSpring, animated } from 'react-spring'
+import useOnScreen from '../../hooks/useOnSreen'
 
 const Home = () => {
+
+
 
     const MOBILE_SLIDES = [
         {key: 0, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F0-mobile.png?alt=media&token=19e67585-5fd3-420d-b2fc-85abe7ebdc05', button: true, buttonLabel: 'INICIA YA', buttonTop: 'top-80', buttonRef: ''},
@@ -27,6 +31,12 @@ const Home = () => {
 
     const [menuTransparent, setMenuTransparent] = React.useState(false);
     const [sliderLoaded, setSliderLoaded] = React.useState(false);
+
+    const ChooseUs = useRef(null)
+    const isVisibleChooseUs = useOnScreen(ChooseUs)
+
+    const contact = useRef(null)
+    const isVisibleContact = useOnScreen(contact)
 
     useEffect(() => {
         window.addEventListener('scroll', listenToScroll);
@@ -48,7 +58,7 @@ const Home = () => {
         if (scrolled === 0) {
           setMenuTransparent(false);
         }
-        console.log('scrolled', scrolled);
+        // console.log('scrolled', scrolled);
         
     };
 
@@ -114,7 +124,7 @@ const Home = () => {
                     </div>
                 </div> */}
             </div>
-            <div className='h-full flex flex-col items-center mt-5 bg-white w-full'>
+            <div className={`relative h-full flex flex-col items-center mt-5 bg-white w-full ${isVisibleChooseUs ? 'transition-all duration-1000 left-0' : '-left-1/3'}`} ref={ChooseUs}>
                 <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black sm:flex-row sm:gap-3'>
                     <span>¿Por qué</span>
                     <span className='text-secondary'>elegirnos?</span>
@@ -191,7 +201,7 @@ const Home = () => {
             <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black'>
                 <span>Contacto</span>
             </h2>
-            <div className='w-full sm:flex sm:items-center sm:justify-center'>
+            <div ref={contact} className={`relative w-full sm:flex sm:items-center sm:justify-center`}>
                 <div className='flex flex-col gap-4 mt-5'>
                     <Input type='text' placeholder={'Nombre Completo'} required={true}/>
                     <Input type='email' placeholder={'Correo Electrónico'} required={true}/>
