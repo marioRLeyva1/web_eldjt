@@ -5,9 +5,10 @@ import Calendar from '../../icons/calendar.svg'
 import Stats from '../../icons/stats.svg'
 import Users from '../../icons/users.svg'
 import EmblaCarousel from '../../components/EmblaCarousel/EmblaCarousel'
-import GenericCarousel from '../../components/GenericCarousel/EmblaCarousel'
+import GenericCarousel from '../../components/GenericCarousel/GenericCarousel'
 import Card from '../../components/Card/Card'
 import Input from '../../components/Input/Input'
+import Footer from '../../Footer/Footer'
 
 const Home = () => {
 
@@ -56,7 +57,7 @@ const Home = () => {
     };
     
   return (
-    <div className='flex items-center justify-center bg-black'>
+    <div className='flex items-center justify-center bg-black font-poppins'>
       <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-0`}>
         <div className='sm:hidden fixed w-full top-0 z-50'> 
             <MobileHeader menuTransparent={menuTransparent}/>
@@ -70,9 +71,9 @@ const Home = () => {
                 <span>de descuento</span>
             </h4> */}
             <div className={`h-full w-full ${!sliderLoaded ? 'mt-96' : ''}`}>
-                <h2 className='flex flex-col items-center text-4xl font-thin text-dark mb-5 sm:flex-row sm:gap-2 sm:items-center sm:justify-center'>
+                <h2 className='flex flex-col items-center text-4xl font-semibold text-dark mb-5 sm:flex-row sm:gap-2 sm:items-center sm:justify-center'>
                     <span>Oferta</span>
-                    <span>Académica</span>
+                    <span>académica</span>
                 </h2>
                 <div className='sm:flex items-center justify-center sm:w-full'>
                     <div className='sm:flex sm:flex-row sm:w-full sm:justify-center sm:items-baseline flex flex-col gap-4 sm:gap-0'>
@@ -81,7 +82,7 @@ const Home = () => {
                                 <img src='https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fjavier-trueba-iQPr1XkF5F0-unsplash%20(1).jpg?alt=media&token=f8c5ff0b-a125-4cbb-8659-9a888cf8baf4' alt="graduation-cap" className='rounded-t-lg w-full object-cover h-48 object-top'/>
                                 <h5 className='text-2xl pt-3 text-dark '>Licenciaturas</h5>
                                 <p className='text-sm sm:text-lg px-10 mt-1 text-center sm:py-1'>Inicia un mundo lleno de posibilidades.</p>
-                                <button className='flex items-center justify-center text-xs border-2 rounded px-3 py-1 mt-1 mb-3 bg-secondary text-white shadow sm:text-base sm:rounded-lg '>
+                                <button className='flex items-center justify-center text-xs border-2 rounded px-3 py-1 mt-1 mb-3 bg-secondary text-white shadow sm:text-base sm:rounded-lg'>
                                     <p>MÁS INFORMACIÓN</p>
                                     <img src={Arrow} alt="arrow" className='-rotate-90 w-4'/>
                                 </button>
@@ -100,7 +101,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className='text-dark text-2xl font-thin flex flex-col gap-14 items-center justify-center mt-10'>
+                {/* <div className='text-dark text-2xl font-semibold flex flex-col gap-14 items-center justify-center mt-10'>
                     <div className='flex flex-col items-center justify-center'>
                         <img src={Magistrate} alt="graduation-cap" className='h-20 w-24'/>
                         <h5>Licenciaturas</h5>
@@ -113,12 +114,12 @@ const Home = () => {
                     </div>
                 </div> */}
             </div>
-            <div className='h-full flex flex-col items-center mt-5 bg-stairs bg-cover w-full sm:bg-front sm:bg-center'>
-                <h2 className='flex flex-col items-center text-4xl mt-4 font-thin text-white'>
+            <div className='h-full flex flex-col items-center mt-5 bg-white w-full'>
+                <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black sm:flex-row sm:gap-3'>
                     <span>¿Por qué</span>
                     <span className='text-secondary'>elegirnos?</span>
                 </h2>
-                <p className='text-center text-white px-6 mt-4 sm:w-1024'>
+                <p className='text-justify sm:text-center text-black px-6 mt-4 sm:w-1024'>
                     <span>Somos la </span>
                     <span className='font-semibold text-secondary'>institución </span>
                     <span>de educación superior con </span>
@@ -134,7 +135,7 @@ const Home = () => {
                     <span className='font-semibold text-secondary'>listo</span>
                     <span>?</span>
                 </p>
-                <h5 className='mt-7 text-white text-xl font-thin'>
+                <h5 className='mt-7 text-black text-xl font-semibold'>
                     <span>¿Qué te </span>
                     <span className='font-semibold text-secondary'>ofremos</span>
                     <span>?</span>
@@ -142,7 +143,7 @@ const Home = () => {
                 <div className='sm:flex sm:w-1024'>
                     <div className='flex flex-col items-center justify-center'>
                         <img src={Calendar} alt="flexibility" className='w-20 mt-6'/>
-                        <p className='text-center text-white px-16 mt-4'>
+                        <p className='text-center text-black px-16 mt-4'>
                             <span className='font-semibold text-secondary'>Flexbilidad </span>
                             <span>para estudiar a </span>
                             <span>a tu ritmo. De forma escolarizada o </span>
@@ -152,7 +153,7 @@ const Home = () => {
                     </div>
                     <div className='flex flex-col items-center justify-center'>
                         <img src={Stats} alt="flexibility" className='w-20 mt-6'/>
-                        <p className='text-center text-white px-16 mt-4'>
+                        <p className='text-center text-black px-16 mt-4'>
                             <span>Sistema de </span>
                             <span className='font-semibold text-secondary'>becas </span>
                             <span>para que puedas desarrollarte sin </span>
@@ -162,7 +163,7 @@ const Home = () => {
                     </div>
                     <div className='flex flex-col items-center justify-center'>
                         <img src={Users} alt="flexibility" className='w-20 mt-6'/>
-                        <p className='text-center text-white px-16 mt-4 mb-4'>
+                        <p className='text-center text-black px-16 mt-4 mb-4'>
                             <span>Redes de </span>
                             <span className='font-semibold text-secondary'>profesionistas </span>
                             <span>que te ayudarán a ser el </span>
@@ -172,7 +173,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <h2 className='flex flex-col items-center text-4xl mt-4 font-thin text-black'>
+            <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black'>
                 <span>Noticias</span>
             </h2>
             <div className='w-full'>
@@ -187,7 +188,7 @@ const Home = () => {
                     )}
                 </GenericCarousel>
             </div>
-            <h2 className='flex flex-col items-center text-4xl mt-4 font-thin text-black'>
+            <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black'>
                 <span>Contacto</span>
             </h2>
             <div className='w-full sm:flex sm:items-center sm:justify-center'>
@@ -196,11 +197,12 @@ const Home = () => {
                     <Input type='email' placeholder={'Correo Electrónico'} required={true}/>
                     <Input type='tel' placeholder={'Teléfono'} required={true}/>
                     <Input type='text' placeholder={'Ciudad'} required={true}/>
-                    <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold'>ENVIAR</button>
+                    <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow'>ENVIAR</button>
                 </div>
                 <div>
                     Mapa
                 </div>
+                <Footer></Footer>
             </div>
         </div>
     </div>

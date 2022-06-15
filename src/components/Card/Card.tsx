@@ -3,7 +3,7 @@ import Arrow from '../../icons/arraow.svg'
 
 const Card = (props: any) => {
   return (
-    <div className='flex flex-col items-center justify-center w-80 sm:w-96 rounded shadow-lg my-4 bg-slate-50'>
+    <div className='flex flex-col items-center justify-center w-80 sm:w-96 rounded shadow-lg my-4 bg-slate-50 font-poppins'>
         <img src={props.img} className='rounded-t object-cover w-full' />
         <h3 className='font-semibold text-lg'>{props.title}</h3>
         <div className='h-14 flex items-center justify-center px-1'>

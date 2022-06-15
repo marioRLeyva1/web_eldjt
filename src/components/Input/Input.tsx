@@ -14,7 +14,7 @@ const Input = (props:any) => {
             placeholder={placeholder} 
             maxLength={maxlenght} 
             minLength={minlenght}
-            className={`mx-5 p-2 border rounded`}
+            className={`mx-5 p-2 border rounded drop-shadow`}
         />
         }
     </div>

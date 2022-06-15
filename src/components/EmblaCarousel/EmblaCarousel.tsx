@@ -22,7 +22,7 @@ const EmblaCarousel = (props: any) => {
     }, [emblaApi])
   
     return (
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="overflow-hidden font-poppins" ref={emblaRef}>
         <div className="flex">
           {props.slides.map((slide:any) =>(
             <div className='relative flex-slider'>
