@@ -11,7 +11,7 @@ const MobileHeader = (props:any) => {
     };
   return (
     <React.Fragment>
-      <header className={`bg-white h-20 flex justify-between shadow-xl fixed w-screen ${!props.menuTransparent ? 'transition-all durantion-500 -top-20' : 'transition-all durantion-500 top-0'}`}>
+      <header className={`bg-white h-20 flex justify-between shadow-xl w-screen fixed top-0 rounded`}>
           <div className='flex justify-center items-center flex-col w-full'>
               {/* <p className='ml-5 text-light'>ELDJT</p> */}
               <img src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt.png?alt=media&token=e384ed2e-d88d-4e02-a863-8adb15f772bb" alt="eldjt" className='w-60' />
