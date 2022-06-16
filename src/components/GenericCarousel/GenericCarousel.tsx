@@ -21,7 +21,16 @@ const GenericCarousel = (props: any) => {
     }, [emblaApi])
   
     return (
-      <div className='flex items-center justify-center'>
+    
+      <div className='flex items-center justify-center sm:flex-col sm:w-full'>
+        <div className='hidden sm:w-1024 sm:flex sm:relative sm:items-end sm:justify-end'>
+                <button className="hidden sm:block" onClick={scrollPrev}>
+                  <img src={ArrowShadow} alt="arrow" className='relative rotate-90 w-10 opacity-70'/>
+                </button>
+                <button className="hidden sm:block" onClick={scrollNext}>
+                  <img src={ArrowShadow} alt="arrow" className='relative -rotate-90 w-10 opacity-70'/>
+                </button>
+        </div>
         <div className="overflow-hidden w-1024" ref={emblaRef}>
           <div className="flex">
             {props.children.map((children:any) => 
@@ -29,25 +38,7 @@ const GenericCarousel = (props: any) => {
                 {children}
               </div>
             )}
-            {/* {props.slides.map((slide:any) =>(
-              <div className='relative flex-slider'>
-                {<>
-                  <img className='' src={slide.url} alt={slide.key} /> 
-                  {slide.button === true && <div className={`absolute w-full ${slide.buttonTop} flex items-center justify-center`}>
-                  <button className='absolute rounded shadow-xl w-52 h-12 bg-secondary text-white font-semibold text-lg'>{slide.buttonLabel}</button>
-                  </div>}
-                  </> }
-              </div>)
-            )} */}
           </div>
-          {/* <button className="" onClick={scrollPrev}>
-            <img src={ArrowShadow} alt="arrow" className='blur-sm absolute rotate-90 w-14 left-0 top-40'/>
-            <img src={Arrow} alt="arrow" className='absolute rotate-90 w-14 left-0 top-40 opacity-70'/>
-          </button>
-          <button className="" onClick={scrollNext}>
-            <img src={ArrowShadow} alt="arrow" className='blur-sm relative -rotate-90 w-14 right-0 top-40'/>
-            <img src={Arrow} alt="arrow" className='relative -rotate-90 w-14 right-0 top-40 opacity-70'/>
-          </button> */}
         </div>
       </div>
     )

@@ -10,6 +10,7 @@ import Card from '../../components/Card/Card'
 import Input from '../../components/Input/Input'
 import Footer from '../../components/Footer/Footer'
 import useOnScreen from '../../hooks/useOnSreen'
+import Header from '../../components/Header/Header'
 
 const Home = () => {
 
@@ -78,11 +79,14 @@ const Home = () => {
     }
     
   return (
-    <div className='flex items-center justify-center bg-black font-poppins'>
-      <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-0`}>
+    <div className='flex items-center justify-center bg-white font-poppins'>
+      <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-40`}>
         <div className='sm:hidden fixed w-full top-0 z-50'> 
             <MobileHeader menuTransparent={menuTransparent}/>
         </div>
+        {/* <div className='hidden sm:fixed w-full top-0 z-50'>
+            <Header/>
+        </div> */}
         <div className={`flex flex-col bg-white w-full`}>
             <EmblaCarousel slides={MOBILE_SLIDES} onLoadedSlider={onLoadedSlider} onClickSlide1={onHandleClickSlide1}/>
             {/* <img src={'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb'} alt="eldjt" className='h-96 w-full object-contain mt-4'/> */}
@@ -201,12 +205,7 @@ const Home = () => {
             <h2 className='flex flex-col items-center text-4xl mt-4 sm:mt-7 font-semibold text-black'>
                 <span>Noticias</span>
             </h2>
-            <div className='w-full sm:mt-8'>
-                {/* <div className='flex flex-col items-center justify-center sm:flex sm:w-auto sm:flex-row sm:flex-nowrap sm:overflow-hidden'>
-                    {NEWS.map(item => 
-                        <Card title={item.title} subtitle={item.subtitle} img={item.img} id={item.id}/>   
-                    )}
-                </div> */}
+            <div className='w-full sm:-mt-4'>
                 <GenericCarousel slides={MOBILE_SLIDES}>
                     {NEWS.map(item => 
                         <Card title={item.title} subtitle={item.subtitle} img={item.img} id={item.id}/>   
