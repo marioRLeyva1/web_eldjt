@@ -80,7 +80,7 @@ const Home = () => {
     
   return (
     <div className='flex items-center justify-center bg-white font-poppins'>
-      <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-14`}>
+      <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-16`}>
         <div className='sm:hidden fixed w-full top-0 z-50'> 
             <MobileHeader menuTransparent={menuTransparent}/>
         </div>
