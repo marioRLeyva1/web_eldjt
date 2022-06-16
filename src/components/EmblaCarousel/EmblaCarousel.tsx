@@ -19,7 +19,13 @@ const EmblaCarousel = (props: any) => {
   
     const scrollNext = useCallback(() => {
       if (emblaApi) emblaApi.scrollNext()
-    }, [emblaApi])
+    }, [emblaApi]);
+
+    const onHandleClick = (e:any) => {
+      if (e.target.id === '0') {        
+        props.onClickSlide1();
+      }
+    }
   
     return (
       <div className="overflow-hidden font-poppins" ref={emblaRef}>
@@ -27,9 +33,10 @@ const EmblaCarousel = (props: any) => {
           {props.slides.map((slide:any) =>(
             <div className='relative flex-slider'>
               {<>
-                <img className='' src={slide.url} alt={slide.key} onLoad={()=>props.onLoadedSlider()} /> 
+                <img className='sm:hidden' src={slide.url} alt={slide.key} onLoad={()=>props.onLoadedSlider()} />
+                <img id = {slide.key} className='hidden sm:block w-full cursor-pointer' src={slide.urlDesktop} alt={slide.key} onLoad={()=>props.onLoadedSlider()} onClick={(e) => onHandleClick(e)}/> 
                 {slide.button === true && <div className={`absolute w-full ${slide.buttonTop} flex items-center justify-center`}>
-                <button className='absolute rounded shadow-xl w-52 h-12 bg-secondary text-white font-semibold text-lg'>{slide.buttonLabel}</button>
+                <button id={slide.key} className={`absolute sm:hidden rounded shadow-xl w-52 h-12 bg-secondary text-white font-semibold text-lg`} onClick={(e) => onHandleClick(e)}>{slide.buttonLabel}</button>
                 </div>}
                 </> }
             </div>)
