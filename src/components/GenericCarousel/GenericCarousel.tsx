@@ -4,7 +4,7 @@ import Arrow from '../../icons/arraow.svg'
 import ArrowShadow from '../../icons/arraow-shadow.svg'
 
 const GenericCarousel = (props: any) => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
 
     useEffect(() => {
       if (emblaApi) {

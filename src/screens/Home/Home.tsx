@@ -4,7 +4,7 @@ import Arrow from '../../icons/arraow.svg'
 import Calendar from '../../icons/calendar.svg'
 import Stats from '../../icons/stats.svg'
 import Users from '../../icons/users.svg'
-import EmblaCarousel from '../../components/EmblaCarousel/EmblaCarousel'
+import EmblaCarouselHome from '../../components/EmblaCarouselHome/EmblaCarouselHome'
 import GenericCarousel from '../../components/GenericCarousel/GenericCarousel'
 import Card from '../../components/Card/Card'
 import Input from '../../components/Input/Input'
@@ -12,9 +12,8 @@ import Footer from '../../components/Footer/Footer'
 import useOnScreen from '../../hooks/useOnSreen'
 import Header from '../../components/Header/Header'
 
-const Home = () => {
 
-
+const Home = () => {    
 
     const MOBILE_SLIDES = [
         {key: 0, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F0-mobile.png?alt=media&token=19e67585-5fd3-420d-b2fc-85abe7ebdc05', urlDesktop: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F0-desktop.jpg?alt=media&token=c811252d-edff-49c0-9b18-c56a5d5ef48f', button: true, buttonLabel: 'INICIA YA', buttonTop: 'top-80', buttonRef: ''},
@@ -85,10 +84,10 @@ const Home = () => {
             <MobileHeader menuTransparent={menuTransparent}/>
         </div>
         <div className='hidden sm:flex sm:fixed sm:w-full sm:top-0 sm:z-50'>
-            <Header/>
+            <Header loadedSlider={sliderLoaded}/>
         </div>
         <div className={`flex flex-col bg-white w-full`}>
-            <EmblaCarousel slides={MOBILE_SLIDES} onLoadedSlider={onLoadedSlider} onClickSlide1={onHandleClickSlide1}/>
+            <EmblaCarouselHome slides={MOBILE_SLIDES} onLoadedSlider={onLoadedSlider} onClickSlide1={onHandleClickSlide1}/>
             {/* <img src={'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb'} alt="eldjt" className='h-96 w-full object-contain mt-4'/> */}
             {/* <h4 className='font-bold px-14 text-center text-md mb-4'>
                 <span>Inscríbete durante este mes y obtén </span>

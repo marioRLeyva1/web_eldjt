@@ -3,8 +3,8 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Arrow from '../../icons/arraow.svg'
 import ArrowShadow from '../../icons/arraow-shadow.svg'
 
-const EmblaCarousel = (props: any) => {
-    
+const EmblaCarouselHome = (props: any) => {
+ 
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
     useEffect(() => {
@@ -54,4 +54,4 @@ const EmblaCarousel = (props: any) => {
     )
 }
 
-export default EmblaCarousel
+export default EmblaCarouselHome
