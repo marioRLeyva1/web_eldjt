@@ -6,77 +6,11 @@ import { useNavigate } from 'react-router-dom';
 const MobileHeader = (props:any) => {
 
     const [openMenu, setOpenMenu] = React.useState(false);
-    const navigate = useNavigate();
 
     const onHandleMenu = () => {
         setOpenMenu(openMenu === true ? false : true)
     };
 
-    const onHandleMenuClick = (e:any) => {
-      const {target: {innerHTML}} = e;
-      console.log(innerHTML);
-      
-      switch (innerHTML) {
-          case 'Inicio':
-              navigate('/')
-              setOpenMenu(false)
-              break;
-          case 'Historia':
-              navigate('/nosotros/historia')
-              setOpenMenu(false)
-              break;
-          case 'Modelo Educativo':
-              navigate('/nosotros/modelo-educativo')
-              setOpenMenu(false)
-              break;
-          case 'Calendario Institucional':
-              navigate('/nosotros/calendario-institucional')
-              setOpenMenu(false)
-              break;
-          case 'Licenciaturas':
-              navigate('/licenciaturas')
-              setOpenMenu(false)
-              break;
-          case 'Posgrados':
-              navigate('/posgrados')
-              setOpenMenu(false)
-              break;
-          case 'Prepa':
-              navigate('/prepa')
-              setOpenMenu(false)
-              break;
-          case 'Proceso de admisión 2022':
-              navigate('/admisiones')
-              setOpenMenu(false)
-              break;
-          case 'Becas':
-              navigate('/becas')
-              setOpenMenu(false)
-              break;
-          case 'Clases en línea':
-              navigate('/clases-online')
-              setOpenMenu(false)
-              break;
-          case 'Vinculación':
-              navigate('/vinculacion')
-              setOpenMenu(false)
-              break;
-          case 'Pago en línea':
-              navigate('/pago')
-              setOpenMenu(false)
-              break;
-          case 'Noticias':
-              navigate('/noticias')
-              setOpenMenu(false)
-              break;
-          case 'Egresados':
-              navigate('/egresados')
-              setOpenMenu(false)
-              break;
-          default:
-              break;
-      }
-  }
   return (
     <React.Fragment>
       <header className={`bg-white h-20 flex justify-between shadow-xl w-screen fixed top-0 rounded`}>

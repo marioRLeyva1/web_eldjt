@@ -1,9 +1,12 @@
 import React from 'react'
 import Arrow from '../../../icons/arraow-menu.svg'
+import { useNavigate } from 'react-router-dom';
 
 export const Menu = (props: any) => {
 
     const { open } = props;
+    const navigate = useNavigate();
+
     const [menuSections, setMenuSections] = React.useState({
         us: false,
         academicOffer: false,
@@ -27,6 +30,58 @@ export const Menu = (props: any) => {
         } 
     };
 
+    const onHandleMenuClick = (e:any) => {
+        const {target: {innerHTML}} = e;
+        console.log(innerHTML);
+        
+        switch (innerHTML) {
+            case 'Inicio':
+                navigate('/')
+                break;
+            case 'Historia':
+                navigate('/nosotros/historia')
+                break;
+            case 'Modelo Educativo':
+                navigate('/nosotros/modelo-educativo')
+                break;
+            case 'Calendario Institucional':
+                navigate('/nosotros/calendario-institucional')
+                break;
+            case 'Licenciaturas':
+                navigate('/licenciaturas')
+                break;
+            case 'Posgrados':
+                navigate('/posgrados')
+                break;
+            case 'Prepa':
+                navigate('/prepa')
+                break;
+            case 'Proceso de admisión 2022':
+                navigate('/admisiones')
+                break;
+            case 'Becas':
+                navigate('/becas')
+                break;
+            case 'Clases en línea':
+                navigate('/clases-online')
+                break;
+            case 'Vinculación':
+                navigate('/vinculacion')
+                break;
+            case 'Pago en línea':
+                navigate('/pago')
+                break;
+            case 'Noticias':
+                navigate('/noticias')
+                break;
+            case 'Egresados':
+                navigate('/egresados')
+                break;
+            default:
+                break;
+        }
+    }
+
   return (
     <div className='static'>
         <nav className={`shadow-xl h-full w-80 bg-white fixed top-20 -right-80 z-50 ${open ? 'transition-all duration-500 -translate-x-80' : 'transition-all duration-500 -right-80'}`}>
@@ -36,9 +91,9 @@ export const Menu = (props: any) => {
                     <img id='us' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.us ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
                 </div>
                 <div className={`text-orange gap-2 mt-2 ${menuSections.us ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-1000 hidden'}`}>
-                    <p className='ml-8 mt-2'>Historia</p>
-                    <p className='ml-8 mt-2'>Modelo Educativo</p>
-                    <p className='ml-8 mt-2'>Calendario Institucional</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Historia</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Calendario Institucional</p>
                 </div>
             </section>
             <section className='mt-2'>
@@ -47,8 +102,8 @@ export const Menu = (props: any) => {
                     <img id='academicOffer' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.academicOffer ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
                 </div>
                 <div className={`text-orange gap-2 mt-2 ${menuSections.academicOffer ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
-                    <p className='ml-8 mt-2'>Licenciaturas</p>
-                    <p className='ml-8 mt-2'>Postgrados</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Licenciaturas</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Postgrados</p>
                 </div>
             </section>
             <section className='mt-2'>
@@ -57,8 +112,8 @@ export const Menu = (props: any) => {
                     <img id='admissions' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.admissions ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
                 </div>
                 <div className={`text-orange gap-2 mt-2 ${menuSections.admissions ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
-                    <p className='ml-8 mt-2'>Proceso de admisión 2022</p>
-                    <p className='ml-8 mt-2'>Becas</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2022</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Becas</p>
                 </div>
             </section>
             <section className='mt-2'>
@@ -67,17 +122,17 @@ export const Menu = (props: any) => {
                     <img id='services' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.services ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
                 </div>
                 <div className={`text-orange gap-2 mt-2 ${menuSections.services ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
-                    <p className='ml-8 mt-2'>Clases en línea</p>
-                    <p className='ml-8 mt-2'>Vinculación</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Clases en línea</p>
+                    <p className='ml-8 mt-2' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p>
                 </div>
             </section>
             <section className='mt-2'>
-                <div id='news' className='border-b-2 border-light flex justify-between h-9 mt-4' onClick={(e) => onHandleMenu(e)}>
+                <div id='news' className='border-b-2 border-light flex justify-between h-9 mt-4'  onClick={(e) => onHandleMenuClick(e)}>
                     <p id='news' className='text-orange text-lg pl-6'>Noticias</p>
                 </div>
             </section>
             <section className='mt-2'>
-                <div id='graduates' className='border-b-2 border-light flex justify-between h-9 mt-4' onClick={(e) => onHandleMenu(e)}>
+                <div id='graduates' className='border-b-2 border-light flex justify-between h-9 mt-4'  onClick={(e) => onHandleMenuClick(e)}>
                     <p id='graduates' className='text-orange text-lg pl-6'>Egresados</p>
                 </div>
             </section>
