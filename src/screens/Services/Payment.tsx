@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import Layout from '../../components/Layout/Layout'
 import Input from '../../components/Input/Input'
+import { useNavigate } from 'react-router-dom'
 
 const Payment = () => {
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -15,6 +18,10 @@ const Payment = () => {
     document.body.appendChild(script);
   },[]);
 
+  const onHandleCheckout = () => {
+    navigate('/checkout')
+  }
+
 
   return (
     <Layout location='services'>
@@ -25,10 +32,11 @@ const Payment = () => {
         {/* <div className='hidden sm:block w-16'>
           <img src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" />
         </div> */}
-        <div className='sm:mt-10 mt-7'>
+        <div className='sm:mt-10 mt-7 flex flex-col items-center justify-center'>
               <p className='flex flex-col text-justify px-8 gap-4'>
                 <span>Realiza el pago de la colegiatura desde nuestro sitio web. Puedes realizar el pago mediante tarjeta de crédito/débito y transferencia bancaria.</span>
               </p>
+              <button className='mx-5 mb-5 mt-6 border py-2 px-5 bg-secondary rounded text-white font-bold drop-shadow' onClick={() => onHandleCheckout()}>IR A PAGAR</button>
         </div>
         <div className='sm:flex justify-center items-center sm:w-1024 sm:mt-10'>
           <img className='w-96' src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" />
@@ -38,7 +46,7 @@ const Payment = () => {
               <Input type='email' placeholder={'Correo Electrónico'} required={true}/>
               <Input type='tel' placeholder={'Teléfono'} required={true}/>
               <Input type='text' placeholder={'Ciudad'} required={true}/>
-              <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow'>ENVIAR</button>
+              <button className='mx-5 mb-5 border p-2 bg-secondary rounded text-white font-bold drop-shadow'>ENVIAR</button>
           </div>
         </div>
     </div>
