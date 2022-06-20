@@ -50,7 +50,7 @@ const Header = (props:any) => {
         }else{
             setNavFadeIn('right-0')
         }   
-    }, [props.loadedSlider]);
+    }, [props.loadedSlider, path.pathname]);
 
     useEffect(() => {
         if(props.location === 'us') {
@@ -119,7 +119,7 @@ const Header = (props:any) => {
                 graduate: true
             })
         }
-    }, props.location)
+    }, [props.location])
 
     const onHandleClick = (e:any) => {
         
@@ -215,41 +215,41 @@ const Header = (props:any) => {
         <nav className='flex items-center justify-center w-1024'>
             <ul className='flex items-center w-full justify-center gap-10 text-lg'>
                 <li>
-                    <li><a className={`hover:text-secondary ${location.home && 'text-secondary'} cursor-pointer`}  onClick={(e) => onHandleMenuClick(e)}>Inicio</a></li>
+                    <li><p className={`hover:text-secondary ${location.home && 'text-secondary'} cursor-pointer`}  onClick={(e) => onHandleMenuClick(e)}>Inicio</p></li>
                 </li>
                 <li>
-                    <a className={`hover:text-secondary ${location.us && 'text-secondary'} cursor-pointer`} id='us' onClick={(e) => onHandleClick(e)}>Nosotros</a>
+                    <p className={`hover:text-secondary ${location.us && 'text-secondary'} cursor-pointer`} id='us' onClick={(e) => onHandleClick(e)}>Nosotros</p>
                     <ul className={`mt-5 drop-shadow-xl w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.us ? 'absolute' : 'hidden'}`}>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Historia</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Calendario Institucional</a></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Historia</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Calendario Institucional</p></li>
                     </ul>
                 </li>
                 <li>
-                    <a className={`hover:text-secondary ${location.academicOffer && 'text-secondary'} cursor-pointer`} id='academicOffer' onClick={(e) => onHandleClick(e)}>Oferta Académica</a>
+                    <p className={`hover:text-secondary ${location.academicOffer && 'text-secondary'} cursor-pointer`} id='academicOffer' onClick={(e) => onHandleClick(e)}>Oferta Académica</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.academicOffer ? 'absolute' : 'hidden'}`}>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Prepa</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciaturas</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</a></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Prepa</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciaturas</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</p></li>
                     </ul>
                 </li>
                 <li>
-                    <a className={`hover:text-secondary ${location.admissions && 'text-secondary'} cursor-pointer`} id='admissions' onClick={(e) => onHandleClick(e)}>Admisiones</a>
+                    <p className={`hover:text-secondary ${location.admissions && 'text-secondary'} cursor-pointer`} id='admissions' onClick={(e) => onHandleClick(e)}>Admisiones</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.admissions ? 'absolute' : 'hidden'}`}>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2022</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Becas</a></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2022</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Becas</p></li>
                     </ul>
                 </li>
                 <li>
-                    <a className={`hover:text-secondary ${location.services && 'text-secondary'} cursor-pointer`}  id='services' onClick={(e) => onHandleClick(e)}>Servicios</a>
+                    <p className={`hover:text-secondary ${location.services && 'text-secondary'} cursor-pointer`}  id='services' onClick={(e) => onHandleClick(e)}>Servicios</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.services ? 'absolute' : 'hidden'}`}>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Clases en línea</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Vinculación</a></li>
-                        <li className='my-1'><a className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Pago en línea</a></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Clases en línea</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Pago en línea</p></li>
                     </ul>
                 </li>
-                <li><a className={`hover:text-secondary ${location.news && 'text-secondary'} cursor-pointer`} onClick={(e) => onHandleMenuClick(e)}>Noticias</a></li>
-                <li><a className={`hover:text-secondary ${location.graduate && 'text-secondary'} cursor-pointer`}  onClick={(e) => onHandleMenuClick(e)}>Egresados</a></li>
+                <li><p className={`hover:text-secondary ${location.news && 'text-secondary'} cursor-pointer`} onClick={(e) => onHandleMenuClick(e)}>Noticias</p></li>
+                <li><p className={`hover:text-secondary ${location.graduate && 'text-secondary'} cursor-pointer`}  onClick={(e) => onHandleMenuClick(e)}>Egresados</p></li>
             </ul>
         </nav>
     </header>

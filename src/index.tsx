@@ -16,7 +16,6 @@ import Scholarships from './screens/Admissions/Scholarships';
 import OnlineClasses from './screens/Services/OnlineClasses';
 import Linkage from './screens/Services/Linkage';
 import Payment from './screens/Services/Payment';
-import New from './screens/News/New';
 import News from './screens/News/News';
 import Graduate from './screens/Graduate/Graduate';
 import Checkkout from './screens/Checkout/Checkout';

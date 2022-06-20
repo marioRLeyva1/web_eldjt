@@ -1,7 +1,6 @@
 import React from 'react'
 import MenuIcon from '../../icons/menu-icon.svg'
 import { Menu } from './components/Menu';
-import { useNavigate } from 'react-router-dom';
 
 const MobileHeader = (props:any) => {
 
@@ -22,7 +21,7 @@ const MobileHeader = (props:any) => {
           </div>
           <img src={MenuIcon} alt='menu' className='w-20 h-20 p-7 absolute right-0' onClick={onHandleMenu}/>
       </header>
-      <Menu open={openMenu}/>
+      <Menu open={openMenu} onCloseMenu={onHandleMenu}/>
     </React.Fragment>
   )
 }

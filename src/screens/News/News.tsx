@@ -1,8 +1,11 @@
 import React from 'react'
+import Layout from '../../components/Layout/Layout'
 
 const News = () => {
   return (
-    <div>News</div>
+    <Layout location='news'>
+      
+    </Layout>
   )
 }
 
