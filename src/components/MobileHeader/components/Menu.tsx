@@ -87,6 +87,11 @@ export const Menu = (props: any) => {
     <div className='static'>
         <nav className={`shadow-xl h-full w-80 bg-white fixed top-20 -right-80 z-50 ${open ? 'transition-all duration-500 -translate-x-80' : 'transition-all duration-500 -right-80'}`}>
             <section className='mt-2'>
+                <div id='index' className='border-b-2 border-light flex justify-between h-9 mt-4 active:bg-slate-400'  onClick={(e) => onHandleMenuClick(e)}>
+                    <p id='index' className='text-blacktext-lg pl-6'>Inicio</p>
+                </div>
+            </section>
+            <section className='mt-2'>
                 <div id='us' className='border-b-2 border-light flex justify-between h-9 z-50 mt-4' onClick={(e) => onHandleMenu(e)}>
                     <p id='us' className='text-blacktext-lg pl-6'>Nosotros</p>
                     <img id='us' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.us ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
