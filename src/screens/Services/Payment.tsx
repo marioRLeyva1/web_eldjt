@@ -7,17 +7,6 @@ const Payment = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src = "https://resources.openpay.mx/lib/openpay-js/1.2.38/openpay.v1.min.js";
-    script.async = true;
-
-    console.log(script.async);
-  
-    document.body.appendChild(script);
-  },[]);
-
   const onHandleCheckout = () => {
     navigate('/checkout')
   }
