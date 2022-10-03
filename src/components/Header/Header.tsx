@@ -175,8 +175,8 @@ const Header = (props:any) => {
             case 'Calendario Institucional':
                 navigate('/nosotros/calendario-institucional')
                 break;
-            case 'Licenciaturas':
-                navigate('/licenciaturas')
+            case 'Licenciatura':
+                navigate('/licenciatura')
                 break;
             case 'Posgrados':
                 navigate('/posgrados')
@@ -229,7 +229,7 @@ const Header = (props:any) => {
                     <p className={`hover:text-secondary ${location.academicOffer && 'text-secondary'} cursor-pointer`} id='academicOffer' onClick={(e) => onHandleClick(e)}>Oferta Académica</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.academicOffer ? 'absolute' : 'hidden'}`}>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Prepa</p></li>
-                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciaturas</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciatura</p></li>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</p></li>
                     </ul>
                 </li>

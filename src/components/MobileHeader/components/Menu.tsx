@@ -48,8 +48,8 @@ export const Menu = (props: any) => {
             case 'Calendario Institucional':
                 navigate('/nosotros/calendario-institucional')
                 break;
-            case 'Licenciaturas':
-                navigate('/licenciaturas')
+            case 'Licenciatura':
+                navigate('/licenciatura')
                 break;
             case 'Posgrados':
                 navigate('/posgrados')
@@ -109,7 +109,7 @@ export const Menu = (props: any) => {
                 </div>
                 <div className={`text-blackgap-2 mt-2 ${menuSections.academicOffer ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Prepa</p>
-                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Licenciaturas</p>
+                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Licenciatura</p>
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Postgrados</p>
                 </div>
             </section>

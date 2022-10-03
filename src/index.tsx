@@ -31,10 +31,9 @@ root.render(
         <Route path='/nosotros/historia' element={<History/>}/>
         <Route path='/nosotros/modelo-educativo' element={<EducationalModel/>}/>
         <Route path='/nosotros/calendario-institucional' element={<Caldendar/>}/>
-        <Route path='/licenciaturas' element={<Bachelors/>}/>
+        <Route path='/licenciatura' element={<Bachelors/>}/>
         <Route path='/posgrados' element={<Postgraduate/>}/>
         <Route path='/prepa' element={<HighSchool/>}/>
-        <Route path='/licenciaturas' element={<Bachelors/>}/>
         <Route path='/admisiones' element={<AdmissionProcess/>}/>
         <Route path='/becas' element={<Scholarships/>}/>
         <Route path='/clases-online' element={<OnlineClasses/>}/>

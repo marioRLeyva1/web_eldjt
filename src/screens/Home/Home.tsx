@@ -11,6 +11,7 @@ import Input from '../../components/Input/Input'
 import Footer from '../../components/Footer/Footer'
 import useOnScreen from '../../hooks/useOnSreen'
 import Header from '../../components/Header/Header'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 const Home = () => {    
@@ -35,6 +36,8 @@ const Home = () => {
     const isVisibleChooseUs = useOnScreen(ChooseUs)
 
     const contact = useRef<null | HTMLDivElement>(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.addEventListener('scroll', listenToScroll);
@@ -101,10 +104,10 @@ const Home = () => {
                 </h2>
                 <div className='sm:flex items-center justify-center sm:w-full sm:mt-10'>
                     <div className='sm:flex sm:flex-row sm:w-full sm:justify-center sm:items-baseline flex flex-col gap-4 sm:gap-0'>
-                        <div className={`flex items-center justify-center sm:w-4/12 sm:h-auto transition hover:scale-105 sm:ml-5`}>
+                        <div className={`flex items-center justify-center sm:w-4/12 sm:h-auto transition hover:scale-105 sm:ml-5`} onClick={() => navigate('/licenciatura')}>
                             <div className='flex flex-col items-center justify-center w-10/12 h-auto border-1 rounded-lg shadow-md bg-slate-50'>
                                 <img src='https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fjavier-trueba-iQPr1XkF5F0-unsplash%20(1).jpg?alt=media&token=f8c5ff0b-a125-4cbb-8659-9a888cf8baf4' alt="graduation-cap" className='rounded-t-lg w-full object-cover h-48 object-top sm:h-56'/>
-                                <h5 className='text-2xl pt-3 text-dark '>Licenciaturas</h5>
+                                <h5 className='text-2xl pt-3 text-dark '>Licenciatura</h5>
                                 <div className='flex items-center justify-center sm:h-16'>
                                     <p className='text-sm sm:text-lg px-10 mt-1 text-center sm:py-1'>Inicia un mundo lleno de posibilidades.</p>
                                 </div>
