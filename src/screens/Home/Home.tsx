@@ -214,7 +214,7 @@ const Home = () => {
                     )}
                 </GenericCarousel>
             </div>
-            <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black sm:mt-8'>
+            {/* <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black sm:mt-8'>
                 <span>Contacto</span>
             </h2>
             <div className='flex items-center justify-center'>
@@ -230,8 +230,10 @@ const Home = () => {
                         <iframe className='shadow border' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15179.601881666835!2d-92.9335437!3d17.983367!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x68de260b6df9f227!2sEscuela%20Libre%20de%20Derecho%20y%20Jurisprudencia%20de%20Tabasco!5e0!3m2!1ses-419!2smx!4v1655332013040!5m2!1ses-419!2smx" width="400" height="300"  loading="lazy"></iframe>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <div className='relative mt-10'>
                 <Footer></Footer>
+            </div>
         </div>
     </div>
 </div>

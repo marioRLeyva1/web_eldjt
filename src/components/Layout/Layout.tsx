@@ -16,7 +16,7 @@ const Layout = (props:any) => {
         <div className='pb-5 flex items-center justify-center'>
             {props.children}
         </div>
-        <div className='absolute bottom-0 w-full'>
+        <div className=' w-full absolute'>
             <Footer/>
         </div>
     </div>
