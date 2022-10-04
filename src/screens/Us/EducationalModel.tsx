@@ -18,7 +18,6 @@ const EducationalModel = () => {
                 <span>La excelencia de su proceso educativo se obtiene a través del aprendizaje situado que permite atender y responder a los problemas sociales vigentesen el estado, con la participación interactiva de los actores de la comunidad educativa: alumnos, académicos, investigadores, colegios de profesionales, operarios del derecho, entre otros. Generando certeza jurídica, convivencia social y desarrollo integral profesional y humano.</span>
                 <span>El prestigio, la experiencia y el conocimiento del personal académico, contribuye a la formación profesional de calidad de los futuros licenciados en Derecho, y al estudio y práctica de la justicia desde una perspectiva humana, que se enfoque a la búsqueda de la verdad histórica.</span>
               </p>
-              <h2>¡Inicia con la decisión correcta!</h2>
           </div>
       </div>
     </Layout>
