@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../../components/Layout/Layout'
 import Input from '../../components/Input/Input'
 import Card from '../../components/Card/Card'
+import { ELDJTAPIURL } from '../../utils/constans'
+import axios from 'axios'
 
 const OnlineClasses = () => {
+  const [classroom, setClassroom] = React.useState<{id: number; subject: string; date: number, img: string, url:string}[]>([]);
+  const [ready, setReady] = React.useState(false);
+
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+    getClassrooms();
+}, [])
+
+  const getClassrooms = async () => {
+    try {
+        // const res = await fetch(`${ELDJTAPIURL}/api/news`);
+        // console.log(await res.json())
+        let config = {
+            method: 'GET',
+            url: `${ELDJTAPIURL}/api/classroom`,
+            headers: { }
+          };
+
+        let res = await axios(config);
+        console.log('res', res.data)
+        setClassroom(res.data.news);
+        setReady(true);
+    } catch (error) {
+        console.log('error',error);
+    }
+}
   return (
     <Layout location='services'>
       <div className='flex flex-col mt-24 items-center justify-center w-1024 mb-14'>
@@ -19,6 +47,7 @@ const OnlineClasses = () => {
             </p>
           </div>
           <div className='sm:flex sm:flex-wrap sm:gap-10 items-center justify-center'>
+            {classroom.map((cr) => <Card img={cr.img} buttonLabel='Entrar' title={cr.subject} subtitle={cr.date}/>)}
             <Card img='https://www.caracteristicas.co/wp-content/uploads/2017/05/derecho-civil-5-e1569023904789.jpg' buttonLabel='ENTRAR' title='Derecho Civil I' subtitle='Hora: 9:00 AM'/>
             <Card img='https://www.caracteristicas.co/wp-content/uploads/2017/05/derecho-civil-5-e1569023904789.jpg' buttonLabel='ENTRAR' title='Derecho Civil II' subtitle='Hora: 11:00 AM'/>
             <Card img='https://uneg.edu.mx/wp-content/uploads/2021/12/13.-Que-es-la-maestria-en-derecho-fiscal-min-scaled.jpg' buttonLabel='ENTRAR' title='Derecho Fiscal I' subtitle='Hora: 1:00 PM'/>
