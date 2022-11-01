@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import MobileHeader from '../MobileHeader/MobileHeader'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 const Layout = (props:any) => {
+
+    useEffect(() => {
+        document.documentElement.scrollTop = 0;
+    }, []);
+
   return (
     <div className='font-poppins relative min-h-screen'>
         <div className='sm:hidden fixed w-full top-0 z-50'>

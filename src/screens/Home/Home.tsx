@@ -12,22 +12,40 @@ import Footer from '../../components/Footer/Footer'
 import useOnScreen from '../../hooks/useOnSreen'
 import Header from '../../components/Header/Header'
 import { Navigate, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { ELDJTAPIURL } from '../../utils/constans'
 
 
-const Home = () => {    
+const Home = () => {
 
     const MOBILE_SLIDES = [
         {key: 0, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F0-mobile.png?alt=media&token=19e67585-5fd3-420d-b2fc-85abe7ebdc05', urlDesktop: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F0-desktop.jpg?alt=media&token=c811252d-edff-49c0-9b18-c56a5d5ef48f', button: true, buttonLabel: 'INICIA YA', buttonTop: 'top-80', buttonRef: ''},
         {key: 1, url: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F1-mobile.png?alt=media&token=6a66360c-4af2-41c1-9435-af9bdd5e3562', urlDesktop: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/home-carousel%2F1-desktop.jpg?alt=media&token=3945cc6f-ec57-4f21-8cdf-d7b24dd1220d', button: true, buttonLabel: 'CONOCE MÁS', buttonTop: 'top-72', buttonRef: ''}
     ];
+    useEffect(() => {
+        document.documentElement.scrollTop = 0;
+        getNews();
+    }, [])
+    const [news, setNews] = React.useState<{id: number; title: string; subtitle: string, img: string}[]>([]);
+    const [ready, setReady] = React.useState(false);
+    const getNews = async () => {
+        try {
+            // const res = await fetch(`${ELDJTAPIURL}/api/news`);
+            // console.log(await res.json())
+            let config = {
+                method: 'GET',
+                url: `${ELDJTAPIURL}/api/news`,
+                headers: { }
+              };
 
-    const NEWS = [
-        {id: 0, title: 'Título 1. Gran noticia', subtitle: 'Aquí va una pequeña descripción de la nota', img: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fdom-fou-YRMWVcdyhmI-unsplash%20(1).jpg?alt=media&token=4bb3c145-10ce-4119-8b75-61ef1d1d42e8'},
-        {id: 1, title: 'Título 2. Gran noticia', subtitle: 'Aquí va una pequeña descripción de la nota', img: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fdom-fou-YRMWVcdyhmI-unsplash%20(1).jpg?alt=media&token=4bb3c145-10ce-4119-8b75-61ef1d1d42e8'},
-        {id: 2, title: 'Título 1. Gran noticia', subtitle: 'Aquí va una pequeña descripción de la nota', img: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fdom-fou-YRMWVcdyhmI-unsplash%20(1).jpg?alt=media&token=4bb3c145-10ce-4119-8b75-61ef1d1d42e8'},
-        {id: 3, title: 'Título 2. Gran noticia', subtitle: 'Aquí va una pequeña descripción de la nota', img: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fdom-fou-YRMWVcdyhmI-unsplash%20(1).jpg?alt=media&token=4bb3c145-10ce-4119-8b75-61ef1d1d42e8'},
-        {id: 3, title: 'Título 2. Gran noticia', subtitle: 'Aquí va una pequeña descripción de la nota. Descripción de dobles renglón.', img: 'https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Fdom-fou-YRMWVcdyhmI-unsplash%20(1).jpg?alt=media&token=4bb3c145-10ce-4119-8b75-61ef1d1d42e8'},
-    ]
+            let res = await axios(config);
+            console.log('res', res.data)
+            setNews(res.data.news);
+            setReady(true);
+        } catch (error) {
+            console.log('error',error);
+        }
+    }
 
     const [menuTransparent, setMenuTransparent] = React.useState(false);
     const [sliderLoaded, setSliderLoaded] = React.useState(false);
@@ -46,11 +64,11 @@ const Home = () => {
     const listenToScroll = () => {
         const winScroll =
           document.body.scrollTop || document.documentElement.scrollTop
-      
+
         const height =
           document.documentElement.scrollHeight -
           document.documentElement.clientHeight
-      
+
         const scrolled = winScroll / height
 
         if (scrolled > 0) {
@@ -60,7 +78,7 @@ const Home = () => {
           setMenuTransparent(false);
         }
         // console.log('scrolled', scrolled);
-        
+
     };
 
     const onLoadedSlider = () => {
@@ -75,15 +93,13 @@ const Home = () => {
                 inline: "start"
             });
             console.log(contact);
-            
-            
         }
     }
     
   return (
     <div className='flex items-center justify-center bg-white font-poppins'>
       <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-16`}>
-        <div className='sm:hidden fixed w-full top-0 z-50'> 
+        <div className='sm:hidden fixed w-full top-0 z-50'>
             <MobileHeader menuTransparent={menuTransparent}/>
         </div>
         <div className='hidden sm:flex sm:fixed sm:w-full sm:top-0 sm:z-50'>
@@ -125,8 +141,8 @@ const Home = () => {
                                     <p className='text-sm sm:text-lg px-10 mt-1 text-center sm:py-1'>Expande tus límites.</p>
                                 </div>
                                 <button className='flex items-center justify-center text-xs border-2 rounded px-3 py-1 mt-1 mb-3 bg-secondary text-white shadow sm:text-base sm:rounded-lg '>
-                                    <p>MÁS INFORMACIÓN</p>
-                                    <img src={Arrow} alt="arrow" className='-rotate-90 w-4'/>
+                                    <p>PROXIMAMENTE</p>
+                                    {/* <img src={Arrow} alt="arrow" className='-rotate-90 w-4'/> */}
                                 </button>
                             </div>
                         </div>
@@ -208,11 +224,11 @@ const Home = () => {
                 <span>Noticias</span>
             </h2>
             <div className='w-full sm:-mt-4'>
-                <GenericCarousel slides={MOBILE_SLIDES}>
-                    {NEWS.map(item => 
-                        <Card title={item.title} subtitle={item.subtitle} img={item.img} id={item.id}/>   
+                {ready && <GenericCarousel slides={MOBILE_SLIDES}>
+                    {news.map(item => 
+                        <Card title={item.title} subtitle={item.subtitle} img={item.img} id={item.id} key={item.id}/>   
                     )}
-                </GenericCarousel>
+                </GenericCarousel>}
             </div>
             {/* <h2 className='flex flex-col items-center text-4xl mt-4 font-semibold text-black sm:mt-8'>
                 <span>Contacto</span>

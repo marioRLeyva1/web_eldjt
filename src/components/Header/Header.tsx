@@ -221,16 +221,16 @@ const Header = (props:any) => {
                     <p className={`hover:text-secondary ${location.us && 'text-secondary'} cursor-pointer`} id='us' onClick={(e) => onHandleClick(e)}>Nosotros</p>
                     <ul className={`mt-5 drop-shadow-xl w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.us ? 'absolute' : 'hidden'}`}>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Historia</p></li>
-                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</p></li>
+                        {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</p></li> */}
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Calendario Institucional</p></li>
                     </ul>
                 </li>
                 <li>
                     <p className={`hover:text-secondary ${location.academicOffer && 'text-secondary'} cursor-pointer`} id='academicOffer' onClick={(e) => onHandleClick(e)}>Oferta Académica</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.academicOffer ? 'absolute' : 'hidden'}`}>
-                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Prepa</p></li>
+                        {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Prepa</p></li> */}
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciatura</p></li>
-                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</p></li>
+                        {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</p></li> */}
                     </ul>
                 </li>
                 <li>
@@ -244,7 +244,7 @@ const Header = (props:any) => {
                     <p className={`hover:text-secondary ${location.services && 'text-secondary'} cursor-pointer`}  id='services' onClick={(e) => onHandleClick(e)}>Servicios</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.services ? 'absolute' : 'hidden'}`}>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Clases en línea</p></li>
-                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p></li>
+                        {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p></li> */}
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Pago en línea</p></li>
                     </ul>
                 </li>

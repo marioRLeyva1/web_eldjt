@@ -2,10 +2,11 @@ import React from 'react'
 import Arrow from '../../icons/arraow.svg'
 
 const Card = (props: any) => {
+  
   return (
-    <div className='flex flex-col items-center justify-center w-80 sm:w-96 rounded shadow-lg my-4 bg-slate-50 font-poppins'>
-        <img src={props.img} className='rounded-t object-cover w-full' />
-        <h3 className='font-semibold text-lg'>{props.title}</h3>
+    <div className='flex flex-col items-center justify-center w-80 h-128 sm:w-96 rounded shadow-lg my-4 bg-slate-50 font-poppins'>
+        <img src={props.img} className='rounded-t object-cover w-full sm:h-72 h-56' />
+        <h3 className='font-semibold text-lg pt-2 text-center px-2'>{props.title}</h3>
         <div className='h-14 flex items-center justify-center px-1'>
           <p className='text-slate-600 text-center'>{props.subtitle}</p>
         </div>

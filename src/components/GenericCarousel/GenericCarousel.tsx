@@ -33,7 +33,7 @@ const GenericCarousel = (props: any) => {
         </div>
         <div className="overflow-hidden w-1024" ref={emblaRef}>
           <div className="flex">
-            {props.children.map((children:any) => 
+            {props.children.map((children:any) =>
               <div className='relative flex-slider-auto mx-3'>
                 {children}
               </div>

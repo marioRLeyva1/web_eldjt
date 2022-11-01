@@ -98,7 +98,7 @@ export const Menu = (props: any) => {
                 </div>
                 <div className={`text-blackgap-2 mt-2 ${menuSections.us ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-1000 hidden'}`}>
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Historia</p>
-                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</p>
+                    {/* <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Modelo Educativo</p> */}
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Calendario Institucional</p>
                 </div>
             </section>
@@ -108,9 +108,9 @@ export const Menu = (props: any) => {
                     <img id='academicOffer' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.academicOffer ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
                 </div>
                 <div className={`text-blackgap-2 mt-2 ${menuSections.academicOffer ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
-                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Prepa</p>
+                    {/* <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Prepa</p> */}
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Licenciatura</p>
-                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Postgrados</p>
+                    {/* <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Postgrados</p> */}
                 </div>
             </section>
             <section className='mt-2'>
@@ -130,7 +130,7 @@ export const Menu = (props: any) => {
                 </div>
                 <div className={`text-blackgap-2 mt-2 ${menuSections.services ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Clases en línea</p>
-                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p>
+                    {/* <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p> */}
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Pago en línea</p>
                 </div>
             </section>

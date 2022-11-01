@@ -13,7 +13,7 @@ const Linkage = () => {
           <img src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" />
         </div> */}
         <div className='sm:mt-10 mt-7'>
-            
+
         </div>
         <div className='sm:flex justify-center items-center sm:w-1024 sm:mt-10'>
           {/* <img className='w-96' src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" /> */}
