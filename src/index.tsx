@@ -19,6 +19,7 @@ import Payment from './screens/Services/Payment';
 import News from './screens/News/News';
 import Graduate from './screens/Graduate/Graduate';
 import Checkkout from './screens/Checkout/Checkout';
+import New from './screens/News/New';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -40,6 +41,7 @@ root.render(
         <Route path='/vinculacion' element={<Linkage/>}/>
         <Route path='/pago' element={<Payment/>}/>
         <Route path='/noticias' element={<News/>}/>
+        <Route path='/noticias/:url' element={<New/>}/>
         <Route path='/egresados' element={<Graduate/>}/>
         <Route path='/checkout' element={<Checkkout/>} />
       </Routes>
