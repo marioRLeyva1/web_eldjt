@@ -57,7 +57,7 @@ export const Menu = (props: any) => {
             case 'Prepa':
                 navigate('/prepa')
                 break;
-            case 'Proceso de admisión 2022':
+            case 'Proceso de admisión 2023':
                 navigate('/admisiones')
                 break;
             case 'Becas':
@@ -119,7 +119,7 @@ export const Menu = (props: any) => {
                     <img id='admissions' src={Arrow} alt="arrow" className={`w-6 h-6 mr-4 ${menuSections.admissions ? 'transition-all duration-500 rotate-180' : 'transition-all duration-500'}`}/>
                 </div>
                 <div className={`text-blackgap-2 mt-2 ${menuSections.admissions ? 'transition-all duration-500 visible flex flex-col' : 'transition-all duration-500 hidden'}`}>
-                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2022</p>
+                    <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2023</p>
                     <p className='pl-8 pt-2 active:bg-slate-400' onClick={(e) => onHandleMenuClick(e)}>Becas</p>
                 </div>
             </section>

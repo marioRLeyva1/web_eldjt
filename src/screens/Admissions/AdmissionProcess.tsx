@@ -1,34 +1,802 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import Input from '../../components/Input/Input'
+import { ExclamationCircleIcon, InformationCircleIcon, PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 const AdmissionProcess = () => {
   return (
     <Layout location='admissions'>
-      <div className='flex flex-col mt-24 items-center justify-center w-1024 mb-14'>
-          <div className=''>
-              <h1 className='text-3xl sm:text-5xl'>Proceso de admisión</h1>
+      <div className=' mt-24 font-poppins w-1024 p-4'>
+        <div className='text-center w-full '>
+          <h1 className='text-xl sm:text-5xl'>Proceso de adminisión</h1>
+          <p className='mt-5'>Ya inició nuestro proceso de adminisión.</p>
+          <p className=' mb-10'>Llena la información del formmulario a continuación y sube tus datos.</p>
+        </div>
+        <div className="relative mb-10">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-gray-300" />
           </div>
-          {/* <div className='hidden sm:block w-16'>
-            <img src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" />
-          </div> */}
-          <div className='sm:mt-10 mt-7'>
-              
+          <div className="relative flex justify-center">
+            <span className="bg-white px-2 text-sm text-gray-500">Formulario</span>
           </div>
-          <div className='sm:flex justify-center items-center sm:w-1024 sm:mt-10'>
-            {/* <img className='w-96' src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" /> */}
-            <div className='flex items-center justify-center p-4 sm:p-1 w-28 sm:w-auto mb-6 sm:mb-0'>
-             <iframe className='shadow border' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15179.601881666835!2d-92.9335437!3d17.983367!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x68de260b6df9f227!2sEscuela%20Libre%20de%20Derecho%20y%20Jurisprudencia%20de%20Tabasco!5e0!3m2!1ses-419!2smx!4v1655332013040!5m2!1ses-419!2smx" width="400" height="300"  loading="lazy"></iframe>
+        </div>
+        <form onChange={(e) => console.log(e)}>
+          <div className="space-y-12">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+              <div>
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Datos personales</h2>
+                <p className="mt-1 text-sm leading-6 text-gray-600">
+                  LLena los espacios con tu información personal.
+                </p>
+              </div>
+
+              <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
+                <div className="sm:col-span-3">
+                  <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                    Apellido paterno
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="last-name"
+                      id="last-name"
+                      autoComplete="given-name"
+                      required
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                    Apellido materno
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="mo-last-name"
+                      id="mo-last-name"
+                      autoComplete="family-name"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+                <div className="sm:col-span-4">
+                  <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                    Nombre(s)
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
+                    Género
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="gender"
+                      name="gender"
+                      autoComplete="gender"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    >
+                      <option>Masculino</option>
+                      <option>Femenino</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="sm:col-span-4">
+                  <label htmlFor="bday" className="block text-sm font-medium leading-6 text-gray-900">
+                    Fecha de nacimiento
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="birthdate"
+                      name="birthdate"
+                      type="date"
+                      autoComplete="bday"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-4">
+                  <label htmlFor="birth-place" className="block text-sm font-medium leading-6 text-gray-900">
+                    Lugar de nacimiento
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="birth-place"
+                      name="birth-place"
+                      type="text"
+                      autoComplete="off"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="marital-status" className="block text-sm font-medium leading-6 text-gray-900">
+                    Estado civil
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="marital-status"
+                      name="marital-status"
+                      autoComplete="off"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    >
+                      <option>Soltero/a</option>
+                      <option>Casado/a</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-span-full">
+                  <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                    Dirección particular
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="street-address"
+                      id="street-address"
+                      autoComplete="street-address"
+                      placeholder="Calle  /  N°  /  Colonia"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-2 sm:col-start-1">
+                  <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+                    Ciudad
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="city"
+                      id="city"
+                      autoComplete="address-level2"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
+                    Estado
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="state"
+                      id="state"
+                      autoComplete="address-level1"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+                    Código Postal
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="postal-code"
+                      id="postal-code"
+                      autoComplete="postal-code"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-4">
+                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                    Correo Electrónico
+                  </label>
+                  <div className="relative mt-2 rounded-md shadow-sm">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      className="block w-full rounded-md border-0 p-1.5 pr-10 text-red-900 ring-1 ring-inset ring-red-300 placeholder:text-red-300 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+                      placeholder="you@example.com"
+                      aria-invalid="true"
+                      aria-describedby="email-error"
+                    />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                      <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <p className="mt-2 text-sm text-red-600" id="email-error">
+                    Ingresa un correco electrónico válido.
+                  </p>
+                </div>
+
+                <div className="sm:col-span-4">
+                  <label htmlFor="curp" className="block text-sm font-medium leading-6 text-gray-900">
+                    CURP
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="curp"
+                      name="curp"
+                      type="text"
+                      autoComplete="curp"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-4">
+                  <label htmlFor="rfc" className="block text-sm font-medium leading-6 text-gray-900">
+                    R.F.C.
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="rfc"
+                      name="rfc"
+                      type="text"
+                      autoComplete="rfc"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="landline" className="block text-sm font-medium leading-6 text-gray-900">
+                    Teléfono fijo
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="tel"
+                      name="landline"
+                      id="landline"
+                      autoComplete="landline"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="tel" className="block text-sm font-medium leading-6 text-gray-900">
+                    Celular
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="tel"
+                      name="tel"
+                      id="tel"
+                      autoComplete="tel"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <fieldset className='sm:col-span-3'>
+                  <legend className="text-sm font-semibold leading-6 text-gray-900">¿Tienes alguna discapacidad?</legend>
+                  <p className="mt-1 text-sm leading-6 text-gray-600">Especifica</p>
+                  <div className="space-y-6 flex items-center align-middle gap-5">
+                    <div className="flex mt-6 items-center gap-x-3">
+                      <input
+                        id="push-everything"
+                        name="push-notifications"
+                        type="radio"
+                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      />
+                      <label htmlFor="push-everything" className="block text-sm font-medium leading-6 text-gray-900">
+                        Sí
+                      </label>
+                    </div>
+                    <div className="flex items-center gap-x-3">
+                      <input
+                        id="push-email"
+                        name="push-notifications"
+                        type="radio"
+                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      />
+                      <label htmlFor="push-email" className="block text-sm font-medium leading-6 text-gray-900">
+                        No
+                      </label>
+                    </div>
+                    <input
+                      type="tel"
+                      name="tel"
+                      id="tel"
+                      autoComplete="tel"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </fieldset>
+
+                <div className="col-span-full">
+                  <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                    Cover photo
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className='sm:flex flex-col gap-4 mt-5 sm:w-96 hidden'>
-                <h3 className='text-2xl text-center'>Contáctanos</h3>
-                <Input type='text' placeholder={'Nombre Completo'} required={true}/>
-                <Input type='email' placeholder={'Correo Electrónico'} required={true}/>
-                <Input type='tel' placeholder={'Teléfono'} required={true}/>
-                <Input type='text' placeholder={'Ciudad'} required={true}/>
-                <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow'>ENVIAR</button>
+
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+              <div>
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Datos Escolares</h2>
+                <p className="mt-1 text-sm leading-6 text-gray-600">Ingresa los datos de tu escuela de procedencia y la carrera a la que aspiras cursar con nosotros.</p>
+              </div>
+
+              <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
+                <div className="sm:col-span-3">
+                  <label htmlFor="bachelors" className="block text-sm font-medium leading-6 text-gray-900">
+                    Licenciatura a la que se inscribe
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="bachelors"
+                      id="bachelors"
+                      autoComplete="off"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label htmlFor="mode" className="block text-sm font-medium leading-6 text-gray-900">
+                    Modalidad
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="mode"
+                      name="mode"
+                      autoComplete="off"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    >
+                      <option>Escolarizada</option>
+                      <option>Mixta (Sábado y Domingo - Matutino)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="sm:col-span-6">
+                  <label htmlFor="shift" className="block text-sm font-medium leading-6 text-gray-900">
+                    Turno
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="shift"
+                      name="shift"
+                      autoComplete="off"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    >
+                      <option>Matutino</option>
+                      <option>Vespertino</option>
+                    </select>
+                  </div>
+                </div>
+
+                <fieldset className='sm:col-span-6'>
+                  <legend className="text-sm font-semibold leading-6 text-gray-900">Estudios realizados</legend>
+                  <div className="mt-6 space-y-3">
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="secondary-school"
+                          name="secondary-school"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="secondary-school" className="font-medium text-gray-900">
+                          Secundaria
+                        </label>
+                      </div>
+                    </div>
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="high-school"
+                          name="high-school"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="high-school" className="font-medium text-gray-900">
+                          Bachillerato
+                        </label>
+                      </div>
+                    </div>
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="bachelor-concluded"
+                          name="bachelor-concluded"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="bachelor-concluded" className="font-medium text-gray-900">
+                          Licenciatura concluida
+                        </label>
+                      </div>
+                    </div>
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="bachelor-not-concluded"
+                          name="bachelor-not-concluded"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="bachelor-not-concluded" className="font-medium text-gray-900">
+                          Licenciatura suspendida
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div className="sm:col-span-6">
+                  <label htmlFor="last-school" className="block text-sm font-medium leading-6 text-gray-900">
+                    Lugar donde se realizó el último grado de estudios
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="last-school"
+                      id="last-school"
+                      placeholder='Escuela'
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <div className="">
+                    <input
+                      type="text"
+                      name="last-school-city"
+                      id="last-school-city"
+                      placeholder='Ciudad'
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <div className="">
+                    <input
+                      type="text"
+                      name="last-school-state"
+                      id="last-school-state"
+                      placeholder='Estado'
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+              <div>
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Datos de contacto</h2>
+                <p className="mt-1 text-sm leading-6 text-gray-600">Ingresa los datos que pueden servir para contacterte o contactar a alguien de tu familia.</p>
+              </div>
+
+              <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
+                <div className="sm:col-span-6">
+                  <label htmlFor="emergency-contact" className="block text-sm font-medium leading-6 text-gray-900">
+                    Contacto de emergencias
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      name="emergency-contact"
+                      id="emergency-contact"
+                      autoComplete="off"
+                      placeholder='Nombre'
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      type="tel"
+                      name="emergency-contact-tel"
+                      id="emergency-contact-tel"
+                      autoComplete="off"
+                      placeholder='Teléfono'
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
+              <div>
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Datos ocupacionales</h2>
+                <p className="mt-1 text-sm leading-6 text-gray-600">
+                  Ingresa los datos de tu empleo actual (si aplica).
+                </p>
+              </div>
+
+              <div className="max-w-2xl space-y-10 md:col-span-2">
+              <div className='sm:flex gap-20'>
+                <fieldset className='sm:col-span-3'>
+                    <legend className="text-sm font-semibold leading-6 text-gray-900">¿Trabajas actualmente?</legend>
+                    <div className="mt-6 space-y-3">
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-yes"
+                          name="working"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-yes" className="block text-sm font-medium leading-6 text-gray-900">
+                          Si
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-no"
+                          name="working"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-no" className="block text-sm font-medium leading-6 text-gray-900">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset className='sm:col-span-3 mt-10 sm:mt-0'>
+                    <legend className="text-sm font-semibold leading-6 text-gray-900">El lugar donde trabaja es:</legend>
+                    <div className="mt-6 space-y-3">
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-place-public"
+                          name="working-place"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-place-public" className="block text-sm font-medium leading-6 text-gray-900">
+                          Público
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-place-private"
+                          name="working-place"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-place-private" className="block text-sm font-medium leading-6 text-gray-900">
+                          Privado
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-place-independent"
+                          name="working-place"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-place-independent" className="block text-sm font-medium leading-6 text-gray-900">
+                          Independiente
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+              </div>
+              <div className="sm:col-span-6">
+                <label htmlFor="work-place-name" className="block text-sm font-medium leading-6 text-gray-900">
+                  Lugar de trabajo
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="text"
+                    name="work-place-name"
+                    id="work-place-name"
+                    autoComplete="off"
+                    placeholder='Nombre'
+                    className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+                <div className="mt-2">
+                  <input
+                    type="tel"
+                    name="work-place-address"
+                    id="work-place-address"
+                    autoComplete="off"
+                    placeholder='Dirección'
+                    className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+              <div className='sm:flex gap-20'>
+                <fieldset className='sm:col-span-3'>
+                    <legend className="text-sm font-semibold leading-6 text-gray-900">En su trabajo, contar con estudios es:</legend>
+                    <div className="mt-6 space-y-3">
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-bachelors"
+                          name="working-bachelors-indispensable"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-bachelors-indispensable" className="block text-sm font-medium leading-6 text-gray-900">
+                          Indispensable
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-bachelors"
+                          name="working-bachelors-necessary"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-bachelors-necessary" className="block text-sm font-medium leading-6 text-gray-900">
+                          Necesario
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-x-3">
+                        <input
+                          id="working-bachelors"
+                          name="working-bachelors-irrelevant"
+                          type="radio"
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <label htmlFor="working-bachelors-irrelevant" className="block text-sm font-medium leading-6 text-gray-900">
+                          Irrelevante
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div className="sm:col-span-3">
+                    <label htmlFor="goal" className="block text-sm font-medium leading-6 text-gray-900">
+                      Los estudios que desea realizar, le permitirán en su trabajo:
+                    </label>
+                    <div className="mt-2">
+                      <select
+                        id="goal"
+                        name="goal"
+                        autoComplete="off"
+                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                      >
+                        <option>Ser promovido</option>
+                        <option>Cumplir políticas institucionales</option>
+                        <option>Desempeñar mejor su trabajo</option>
+                        <option>Otro</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 pb-12 md:grid-cols-3">
+              <div>
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Otros</h2>
+              </div>
+
+              <div className="max-w-2xl space-y-10 md:col-span-2">
+              <div className="sm:col-span-6">
+                    <label htmlFor="goal" className="block text-sm font-medium leading-6 text-gray-900">
+                      ¿A través de qué medio se conoció a la Escuela Libre de Derecho y Jurisprudencia de Tabasco?
+                    </label>
+                    <div className="mt-2">
+                      <select
+                        id="goal"
+                        name="goal"
+                        autoComplete="off"
+                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                      >
+                        <option>Radio</option>
+                        <option>Prensa</option>
+                        <option>TV</option>
+                        <option>Amigos</option>
+                        <option>Espectacular</option>
+                        <option>Facebook</option>
+                        <option>Twitter</option>
+                        <option>Instagram</option>
+                      </select>
+                    </div>
+                  </div>
+                  <fieldset className='sm:col-span-6'>
+                  <div className=" space-y-3">
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="disposiciones"
+                          name="disposiciones"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="disposiciones" className="font-medium text-gray-900">
+                          <span>Acepto las</span>
+                          <a className='text-primary underline' href=""> disposiciones de la ELDJT</a>
+                        </label>
+                      </div>
+                    </div>
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="privacy-policy"
+                          name="privacy-policy"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="privacy-policy" className="font-medium text-gray-900">
+                          <span>Acepto el</span>
+                          <a className='text-primary underline' href=""> aviso de privacidad</a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
             </div>
           </div>
+
+          <div className="rounded-md bg-blue-50 p-4">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <InformationCircleIcon className="h-5 w-5 text-blue-400" aria-hidden="true" />
+              </div>
+              <div className="ml-3 flex-1 md:flex md:justify-between">
+                <p className="text-sm text-blue-700">Para completar el proceso, tendrás que subir la documentación requerida en la siguiente pantalla.
+                Ten a la mano tu Acta de Nacimiento, CURP, Identifiación Escolar con fotografía o INE, comprobante de domicilio y el Certificado de Bachillerato o su equivalente en el Sistema Educativo Nacional (en caso de no haber cursado tus estudios en el  Sistema Educativo Nacional, deberá añadir la Revalidación de Estudios ante la SEP).</p>
+              </div>
+            </div>
+    </div>
+
+          <div className="mt-6 flex items-center justify-center gap-x-6">
+            <button
+              type="submit"
+              className="w-24 h-10 rounded-md bg-secondary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
       </div>
     </Layout>
   )

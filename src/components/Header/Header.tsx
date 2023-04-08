@@ -184,7 +184,7 @@ const Header = (props:any) => {
             case 'Prepa':
                 navigate('/prepa')
                 break;
-            case 'Proceso de admisión 2022':
+            case 'Proceso de admisión 2023':
                 navigate('/admisiones')
                 break;
             case 'Becas':
@@ -236,7 +236,7 @@ const Header = (props:any) => {
                 <li>
                     <p className={`hover:text-secondary ${location.admissions && 'text-secondary'} cursor-pointer`} id='admissions' onClick={(e) => onHandleClick(e)}>Admisiones</p>
                     <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.admissions ? 'absolute' : 'hidden'}`}>
-                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2022</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Proceso de admisión 2023</p></li>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Becas</p></li>
                     </ul>
                 </li>
