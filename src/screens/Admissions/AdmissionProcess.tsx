@@ -1,12 +1,82 @@
-import React from 'react'
+import React, { FormEvent } from 'react'
 import Layout from '../../components/Layout/Layout'
 import Input from '../../components/Input/Input'
 import { ExclamationCircleIcon, InformationCircleIcon, PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { ELDJTAPIURL } from '../../utils/constans'
+import axios from 'axios'
+import Loader from '../../components/Loader/Loader'
 
 const AdmissionProcess = () => {
+
+  const [data, setData] = React.useState({});
+
+  const onHandleForm = (e: FormEvent) => {
+
+    const target = e.target as HTMLInputElement;
+
+    if(target.type === 'radio'){
+      switch (target.id) {
+        case 'disability-yes':
+          setData({...data, [target.name]: true})
+          break;
+        case 'disability-no':
+          setData({...data, [target.name]: false})
+          break;
+        case 'working-yes':
+          setData({...data, [target.name]: true})
+          break;
+        case 'working-no':
+          setData({...data, [target.name]: false})
+          break;
+        case 'working-place-public':
+          setData({...data, [target.name]: 'public'})
+          break;
+        case 'working-place-private':
+          setData({...data, [target.name]: 'private'})
+          break;
+        case 'working-place-independent':
+          setData({...data, [target.name]: 'independent'})
+          break;
+        case 'working-bachelors-indispensable':
+          setData({...data, [target.name]: 'indispensable'})
+          break;
+        case 'working-bachelors-necessary':
+          setData({...data, [target.name]: 'necessary'})
+          break;
+        case 'working-bachelors-irrelevant':
+          setData({...data, [target.name]: 'irrelevant'})
+          break;
+        default:
+          break;
+      }
+    }else if(target.type === 'checkbox'){
+      setData({...data, [target.name]: target.checked});
+    }else{
+      setData({...data, [target.name]: target.value.toLocaleUpperCase()});
+    }
+  }
+
+  const onSubmitForm = async (e: FormEvent) => {
+    e.preventDefault();
+
+    let config = {
+        method: 'post',
+        url: `${ELDJTAPIURL}/api/admissions`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(data)
+    };
+
+    let response = await axios(config);
+
+    console.log(response);
+  }
+
   return (
     <Layout location='admissions'>
-      <div className=' mt-24 font-poppins w-1024 p-4'>
+      <Loader open={true} onCloseLoader={() => console.log('close')}></Loader>
+      {false && <div className=' mt-24 font-poppins w-1024 p-4'>
         <div className='text-center w-full '>
           <h1 className='text-xl sm:text-5xl'>Proceso de adminisión</h1>
           <p className='mt-5'>Ya inició nuestro proceso de adminisión.</p>
@@ -20,7 +90,7 @@ const AdmissionProcess = () => {
             <span className="bg-white px-2 text-sm text-gray-500">Formulario</span>
           </div>
         </div>
-        <form onChange={(e) => console.log(e)}>
+        <form onChange={(e) => onHandleForm(e)} onSubmit={(e) => onSubmitForm(e)}>
           <div className="space-y-12">
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
               <div>
@@ -40,7 +110,7 @@ const AdmissionProcess = () => {
                       type="text"
                       name="last-name"
                       id="last-name"
-                      autoComplete="given-name"
+                      autoComplete="last-name"
                       required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -57,6 +127,7 @@ const AdmissionProcess = () => {
                       name="mo-last-name"
                       id="mo-last-name"
                       autoComplete="family-name"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -70,7 +141,8 @@ const AdmissionProcess = () => {
                       id="name"
                       name="name"
                       type="text"
-                      autoComplete="name"
+                      required
+                      autoComplete="given-name"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -85,8 +157,10 @@ const AdmissionProcess = () => {
                       id="gender"
                       name="gender"
                       autoComplete="gender"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
+                      <option disabled selected ></option>
                       <option>Masculino</option>
                       <option>Femenino</option>
                       <option>Otro</option>
@@ -103,6 +177,7 @@ const AdmissionProcess = () => {
                       id="birthdate"
                       name="birthdate"
                       type="date"
+                      required
                       autoComplete="bday"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -119,6 +194,7 @@ const AdmissionProcess = () => {
                       name="birth-place"
                       type="text"
                       autoComplete="off"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -133,8 +209,10 @@ const AdmissionProcess = () => {
                       id="marital-status"
                       name="marital-status"
                       autoComplete="off"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
+                      <option disabled selected ></option>
                       <option>Soltero/a</option>
                       <option>Casado/a</option>
                       <option>Otro</option>
@@ -152,6 +230,7 @@ const AdmissionProcess = () => {
                       name="street-address"
                       id="street-address"
                       autoComplete="street-address"
+                      required
                       placeholder="Calle  /  N°  /  Colonia"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -167,6 +246,7 @@ const AdmissionProcess = () => {
                       type="text"
                       name="city"
                       id="city"
+                      required
                       autoComplete="address-level2"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -182,6 +262,7 @@ const AdmissionProcess = () => {
                       type="text"
                       name="state"
                       id="state"
+                      required
                       autoComplete="address-level1"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -198,6 +279,7 @@ const AdmissionProcess = () => {
                       name="postal-code"
                       id="postal-code"
                       autoComplete="postal-code"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -212,18 +294,12 @@ const AdmissionProcess = () => {
                       type="email"
                       name="email"
                       id="email"
-                      className="block w-full rounded-md border-0 p-1.5 pr-10 text-red-900 ring-1 ring-inset ring-red-300 placeholder:text-red-300 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
-                      placeholder="you@example.com"
+                      className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      placeholder="nombre@dominio.com"
                       aria-invalid="true"
-                      aria-describedby="email-error"
+                      required
                     />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                      <ExclamationCircleIcon className="h-5 w-5 text-red-500" aria-hidden="true" />
-                    </div>
                   </div>
-                  <p className="mt-2 text-sm text-red-600" id="email-error">
-                    Ingresa un correco electrónico válido.
-                  </p>
                 </div>
 
                 <div className="sm:col-span-4">
@@ -236,6 +312,7 @@ const AdmissionProcess = () => {
                       name="curp"
                       type="text"
                       autoComplete="curp"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -251,6 +328,7 @@ const AdmissionProcess = () => {
                       name="rfc"
                       type="text"
                       autoComplete="rfc"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -281,6 +359,7 @@ const AdmissionProcess = () => {
                       name="tel"
                       id="tel"
                       autoComplete="tel"
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -292,23 +371,23 @@ const AdmissionProcess = () => {
                   <div className="space-y-6 flex items-center align-middle gap-5">
                     <div className="flex mt-6 items-center gap-x-3">
                       <input
-                        id="push-everything"
-                        name="push-notifications"
+                        id="disability-yes"
+                        name="disability"
                         type="radio"
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
-                      <label htmlFor="push-everything" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="disability-yes" className="block text-sm font-medium leading-6 text-gray-900">
                         Sí
                       </label>
                     </div>
                     <div className="flex items-center gap-x-3">
                       <input
-                        id="push-email"
-                        name="push-notifications"
+                        id="disability-no"
+                        name="disability"
                         type="radio"
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
-                      <label htmlFor="push-email" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="disability-no" className="block text-sm font-medium leading-6 text-gray-900">
                         No
                       </label>
                     </div>
@@ -322,7 +401,7 @@ const AdmissionProcess = () => {
                   </div>
                 </fieldset>
 
-                <div className="col-span-full">
+                {/* <div className="col-span-full">
                   <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
                     Cover photo
                   </label>
@@ -342,7 +421,7 @@ const AdmissionProcess = () => {
                       <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -362,6 +441,7 @@ const AdmissionProcess = () => {
                       type="text"
                       name="bachelors"
                       id="bachelors"
+                      required
                       autoComplete="off"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -376,9 +456,11 @@ const AdmissionProcess = () => {
                     <select
                       id="mode"
                       name="mode"
+                      required
                       autoComplete="off"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
+                      <option disabled selected ></option>
                       <option>Escolarizada</option>
                       <option>Mixta (Sábado y Domingo - Matutino)</option>
                     </select>
@@ -393,9 +475,11 @@ const AdmissionProcess = () => {
                     <select
                       id="shift"
                       name="shift"
+                      required
                       autoComplete="off"
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
+                      <option disabled selected ></option>
                       <option>Matutino</option>
                       <option>Vespertino</option>
                     </select>
@@ -527,6 +611,7 @@ const AdmissionProcess = () => {
                       name="emergency-contact"
                       id="emergency-contact"
                       autoComplete="off"
+                      required
                       placeholder='Nombre'
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -538,6 +623,7 @@ const AdmissionProcess = () => {
                       id="emergency-contact-tel"
                       autoComplete="off"
                       placeholder='Teléfono'
+                      required
                       className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
@@ -652,8 +738,8 @@ const AdmissionProcess = () => {
                     <div className="mt-6 space-y-3">
                       <div className="flex items-center gap-x-3">
                         <input
-                          id="working-bachelors"
-                          name="working-bachelors-indispensable"
+                          id="working-bachelors-indispensable"
+                          name="working-bachelors"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
@@ -663,8 +749,8 @@ const AdmissionProcess = () => {
                       </div>
                       <div className="flex items-center gap-x-3">
                         <input
-                          id="working-bachelors"
-                          name="working-bachelors-necessary"
+                          id="working-bachelors-necessary"
+                          name="working-bachelors"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
@@ -674,8 +760,8 @@ const AdmissionProcess = () => {
                       </div>
                       <div className="flex items-center gap-x-3">
                         <input
-                          id="working-bachelors"
-                          name="working-bachelors-irrelevant"
+                          id="working-bachelors-irrelevant"
+                          name="working-bachelors"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
@@ -696,6 +782,7 @@ const AdmissionProcess = () => {
                         autoComplete="off"
                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
+                        <option disabled selected ></option>
                         <option>Ser promovido</option>
                         <option>Cumplir políticas institucionales</option>
                         <option>Desempeñar mejor su trabajo</option>
@@ -715,16 +802,18 @@ const AdmissionProcess = () => {
 
               <div className="max-w-2xl space-y-10 md:col-span-2">
               <div className="sm:col-span-6">
-                    <label htmlFor="goal" className="block text-sm font-medium leading-6 text-gray-900">
+                    <label htmlFor="eldjt" className="block text-sm font-medium leading-6 text-gray-900">
                       ¿A través de qué medio se conoció a la Escuela Libre de Derecho y Jurisprudencia de Tabasco?
                     </label>
                     <div className="mt-2">
                       <select
-                        id="goal"
-                        name="goal"
+                        id="eldjt"
+                        name="eldjt"
                         autoComplete="off"
+                        required
                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                       >
+                        <option disabled selected ></option>
                         <option>Radio</option>
                         <option>Prensa</option>
                         <option>TV</option>
@@ -741,14 +830,15 @@ const AdmissionProcess = () => {
                     <div className="relative flex gap-x-3">
                       <div className="flex h-6 items-center">
                         <input
-                          id="disposiciones"
-                          name="disposiciones"
+                          id="provitions"
+                          name="provitions"
                           type="checkbox"
+                          required
                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
                       </div>
                       <div className="text-sm leading-6">
-                        <label htmlFor="disposiciones" className="font-medium text-gray-900">
+                        <label htmlFor="provitions" className="font-medium text-gray-900">
                           <span>Acepto las</span>
                           <a className='text-primary underline' href=""> disposiciones de la ELDJT</a>
                         </label>
@@ -760,6 +850,7 @@ const AdmissionProcess = () => {
                           id="privacy-policy"
                           name="privacy-policy"
                           type="checkbox"
+                          required
                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                         />
                       </div>
@@ -783,7 +874,7 @@ const AdmissionProcess = () => {
               </div>
               <div className="ml-3 flex-1 md:flex md:justify-between">
                 <p className="text-sm text-blue-700">Para completar el proceso, tendrás que subir la documentación requerida en la siguiente pantalla.
-                Ten a la mano tu Acta de Nacimiento, CURP, Identifiación Escolar con fotografía o INE, comprobante de domicilio y el Certificado de Bachillerato o su equivalente en el Sistema Educativo Nacional (en caso de no haber cursado tus estudios en el  Sistema Educativo Nacional, deberá añadir la Revalidación de Estudios ante la SEP).</p>
+                Ten a la mano tu Acta de Nacimiento, CURP, Identifiación Escolar con fotografía o INE, comprobante de domicilio y el Certificado de Bachillerato o su equivalente en el Sistema Educativo Nacional (en caso de no haber cursado tus estudios en el  Sistema Educativo Nacional, deberás añadir la Revalidación de Estudios ante la SEP).</p>
               </div>
             </div>
     </div>
@@ -797,7 +888,7 @@ const AdmissionProcess = () => {
             </button>
           </div>
         </form>
-      </div>
+      </div>}
     </Layout>
   )
 }

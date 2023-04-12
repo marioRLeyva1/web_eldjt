@@ -48,10 +48,6 @@ const OnlineClasses = () => {
           </div>
           <div className='sm:flex sm:flex-wrap sm:gap-10 items-center justify-center'>
             {classroom.map((cr) => <Card img={cr.img} buttonLabel='Entrar' title={cr.subject} subtitle={cr.date}/>)}
-            <Card img='https://www.caracteristicas.co/wp-content/uploads/2017/05/derecho-civil-5-e1569023904789.jpg' buttonLabel='ENTRAR' title='Derecho Civil I' subtitle='Hora: 9:00 AM'/>
-            <Card img='https://www.caracteristicas.co/wp-content/uploads/2017/05/derecho-civil-5-e1569023904789.jpg' buttonLabel='ENTRAR' title='Derecho Civil II' subtitle='Hora: 11:00 AM'/>
-            <Card img='https://uneg.edu.mx/wp-content/uploads/2021/12/13.-Que-es-la-maestria-en-derecho-fiscal-min-scaled.jpg' buttonLabel='ENTRAR' title='Derecho Fiscal I' subtitle='Hora: 1:00 PM'/>
-
           </div>
           {/* <div className='sm:flex justify-center items-center sm:w-1024 sm:mt-10'>
             <img className='w-96' src="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2Feldjt-png.png?alt=media&token=a31fec81-e6e8-42af-a263-735b9c7cb4cb" alt="eldjt" />
