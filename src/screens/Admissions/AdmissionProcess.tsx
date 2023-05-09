@@ -9,6 +9,7 @@ import Loader from '../../components/Loader/Loader'
 const AdmissionProcess = () => {
 
   const [data, setData] = React.useState({});
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   const onHandleForm = (e: FormEvent) => {
 
@@ -58,6 +59,7 @@ const AdmissionProcess = () => {
 
   const onSubmitForm = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     let config = {
         method: 'post',
@@ -68,15 +70,19 @@ const AdmissionProcess = () => {
         data: JSON.stringify(data)
     };
 
-    let response = await axios(config);
+    try {
+      let response = await axios(config);
+      setLoading(false);
+    } catch (error) {
+      
+    }
 
-    console.log(response);
   }
 
   return (
     <Layout location='admissions'>
-      <Loader open={true} onCloseLoader={() => console.log('close')}></Loader>
-      {false && <div className=' mt-24 font-poppins w-1024 p-4'>
+      <Loader open={loading} onCloseLoader={() => console.log('close')}></Loader>
+      {!loading && <div className=' mt-24 font-poppins w-1024 p-4'>
         <div className='text-center w-full '>
           <h1 className='text-xl sm:text-5xl'>Proceso de adminisión</h1>
           <p className='mt-5'>Ya inició nuestro proceso de adminisión.</p>
@@ -840,7 +846,7 @@ const AdmissionProcess = () => {
                       <div className="text-sm leading-6">
                         <label htmlFor="provitions" className="font-medium text-gray-900">
                           <span>Acepto las</span>
-                          <a className='text-primary underline' href=""> disposiciones de la ELDJT</a>
+                          <a className='text-primary underline' href="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2FDisposiciones%20ELDJT.pdf?alt=media&token=1457159d-b8d1-4779-9dd0-958406ff3785"> disposiciones de la ELDJT</a>
                         </label>
                       </div>
                     </div>
@@ -857,7 +863,7 @@ const AdmissionProcess = () => {
                       <div className="text-sm leading-6">
                         <label htmlFor="privacy-policy" className="font-medium text-gray-900">
                           <span>Acepto el</span>
-                          <a className='text-primary underline' href=""> aviso de privacidad</a>
+                          <a className='text-primary underline' href="https://firebasestorage.googleapis.com/v0/b/eldjt-web.appspot.com/o/misc%2FAVISO%20DE%20PRIVACIDAD.pdf?alt=media&token=8ca02342-c961-4697-bae0-c709addde386"> aviso de privacidad</a>
                         </label>
                       </div>
                     </div>

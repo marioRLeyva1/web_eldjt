@@ -10,6 +10,10 @@ const Header = (props:any) => {
         services: false
     });
 
+    const [bachelorsMenu, setBachelorsMenu] = React.useState(false);
+    const [experienceMenu, setExperienceMenu] = React.useState(false);
+    const [postgraduateMenu, setPostraduateMenu] = React.useState(false);
+
     const [location, setLocation] = React.useState({
         home: false,
         us: false,
@@ -130,6 +134,9 @@ const Header = (props:any) => {
                 admissions: false,
                 services: false
             })
+            setBachelorsMenu(false);
+            setExperienceMenu(false);
+            setPostraduateMenu(false);
         }
         if (e.target.id === 'academicOffer') {
             setSubMenuOpen({
@@ -138,6 +145,9 @@ const Header = (props:any) => {
                 admissions: false,
                 services: false
             })
+            setBachelorsMenu(false);
+            setExperienceMenu(false);
+            setPostraduateMenu(false);
         }
         if (e.target.id === 'admissions') {
             setSubMenuOpen({
@@ -146,6 +156,9 @@ const Header = (props:any) => {
                 admissions: !subMenuOpen.admissions,
                 services: false
             })
+            setBachelorsMenu(false);
+            setExperienceMenu(false);
+            setPostraduateMenu(false);
         }
         if (e.target.id === 'services') {
             setSubMenuOpen({
@@ -154,6 +167,9 @@ const Header = (props:any) => {
                 admissions: false,
                 services: !subMenuOpen.services
             })
+            setBachelorsMenu(false);
+            setExperienceMenu(false);
+            setPostraduateMenu(false);
         } 
         
     };
@@ -175,11 +191,23 @@ const Header = (props:any) => {
             case 'Calendario Institucional':
                 navigate('/nosotros/calendario-institucional')
                 break;
-            case 'Licenciatura':
+            case 'Derecho':
                 navigate('/licenciatura')
                 break;
+            case 'Licenciatura':
+                setBachelorsMenu(!bachelorsMenu);
+                setExperienceMenu(false);
+                setPostraduateMenu(false);
+                break;
+            case 'Licenciatura por experiencia laboral':
+                setBachelorsMenu(false);
+                setExperienceMenu(!experienceMenu);
+                setPostraduateMenu(false);
+                break;
             case 'Posgrados':
-                navigate('/posgrados')
+                setBachelorsMenu(false);
+                setExperienceMenu(false);
+                setPostraduateMenu(!postgraduateMenu);
                 break;
             case 'Prepa':
                 navigate('/prepa')
@@ -227,10 +255,52 @@ const Header = (props:any) => {
                 </li>
                 <li>
                     <p className={`hover:text-secondary ${location.academicOffer && 'text-secondary'} cursor-pointer`} id='academicOffer' onClick={(e) => onHandleClick(e)}>Oferta Académica</p>
-                    <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.academicOffer ? 'absolute' : 'hidden'}`}>
-                        {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Prepa</p></li> */}
+                    <ul className={`mt-5 shadow-lg w-96 bg-slate-50 p-2 rounded-lg ${subMenuOpen.academicOffer ? 'absolute' : 'hidden'}`}>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Bachillerato</p></li>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciatura</p></li>
-                        {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</p></li> */}
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Licenciatura por experiencia laboral</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Posgrados</p></li>
+                    </ul>
+                    <ul className={`mt-5 ml-96 shadow-lg w-96 bg-slate-50 p-2 rounded-lg ${bachelorsMenu ? 'absolute' : 'hidden'}`}>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Derecho</p></li>
+                        <li className='my-1'>
+                            <p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>
+                                Contaduría
+                                <span className=" ml-4 inline-flex items-center rounded-full bg-secondary px-2 py-1 text-xs font-medium text-white">
+                                    Próximamente
+                                </span>
+                            </p>
+                        </li>
+                        <li className='my-1'>
+                        <p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>
+                                Administración
+                                <span className=" ml-4 inline-flex items-center rounded-full bg-secondary px-2 py-1 text-xs font-medium text-white">
+                                    Próximamente
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                    <ul className={`mt-5 ml-96 shadow-lg w-96 bg-slate-50 p-2 rounded-lg ${experienceMenu ? 'absolute' : 'hidden'}`}>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Pedagogía</p></li>
+                        <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Administración</p></li>
+                    </ul>
+                    <ul className={`mt-5 ml-96 shadow-lg w-96 bg-slate-50 p-2 rounded-lg ${postgraduateMenu ? 'absolute' : 'hidden'}`}>
+                        <li className='my-1'>
+                            <p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>
+                                Maestrías
+                                <span className=" ml-4 inline-flex items-center rounded-full bg-secondary px-2 py-1 text-xs font-medium text-white">
+                                    Próximamente
+                                </span>
+                            </p>
+                        </li>
+                        <li className='my-1'>
+                        <p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>
+                                Doctorados
+                                <span className=" ml-4 inline-flex items-center rounded-full bg-secondary px-2 py-1 text-xs font-medium text-white">
+                                    Próximamente
+                                </span>
+                            </p>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -242,7 +312,7 @@ const Header = (props:any) => {
                 </li>
                 <li>
                     <p className={`hover:text-secondary ${location.services && 'text-secondary'} cursor-pointer`}  id='services' onClick={(e) => onHandleClick(e)}>Servicios</p>
-                    <ul className={`mt-5 shadow-lg w-72 bg-slate-50 p-2 rounded-lg ${subMenuOpen.services ? 'absolute' : 'hidden'}`}>
+                    <ul className={`mt-5 shadow-lg w-64 bg-slate-50 p-2 rounded-lg ${subMenuOpen.services ? 'absolute' : 'hidden'}`}>
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Clases en línea</p></li>
                         {/* <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Vinculación</p></li> */}
                         <li className='my-1'><p className='hover:text-secondary cursor-pointer' onClick={(e) => onHandleMenuClick(e)}>Pago en línea</p></li>

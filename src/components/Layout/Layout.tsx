@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader'
 
 const Layout = (props:any) => {
 
-    const maintenance = true
+    const maintenance = false
 
     useEffect(() => {
         document.documentElement.scrollTop = 0;

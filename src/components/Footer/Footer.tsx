@@ -17,7 +17,7 @@ const Footer = () => {
                 <Input type='email' placeholder={'Correo Electrónico'} required={true}/>
                 <Input type='tel' placeholder={'Teléfono'} required={true}/>
                 <Input type='text' placeholder={'Ciudad'} required={true}/>
-                <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow'>
+                <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow' onClick={() => console.log('efef')}>
                   <span>ENVIAR</span>
                   <span className='ml-2'>✉️</span>
                 </button>
