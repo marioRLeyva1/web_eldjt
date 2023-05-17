@@ -21,6 +21,7 @@ import Graduate from './screens/Graduate/Graduate';
 import Checkkout from './screens/Checkout/Checkout';
 import New from './screens/News/New';
 import Status from './screens/Checkout/Status';
+import AdmissionFiles from './screens/Admissions/AdmissionFiles';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -46,6 +47,7 @@ root.render(
         <Route path='/egresados' element={<Graduate/>}/>
         <Route path='/checkout' element={<Checkkout/>} />
         <Route path='/checkout/status/:id' element={<Status/>} />
+        <Route path='/admisiones/registro/:id' element={<AdmissionFiles/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -2,14 +2,22 @@ import React, { FormEvent } from 'react'
 import Layout from '../../components/Layout/Layout'
 import Input from '../../components/Input/Input'
 import { ExclamationCircleIcon, InformationCircleIcon, PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { ELDJTAPIURL } from '../../utils/constans'
+import { ELDJTAPIURL, ELDJTWEBURL } from '../../utils/constans'
 import axios from 'axios'
 import Loader from '../../components/Loader/Loader'
+import Modal from '../../components/Modal/Modal'
+interface Modal {
+  title: string,
+  message: any,
+  type: string
+}
 
 const AdmissionProcess = () => {
 
   const [data, setData] = React.useState({});
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [modal, setModal] = React.useState<Modal>({title: '', message: '', type: ''});
+  const [openModal, setOpenModal] = React.useState<boolean>(false);
 
   const onHandleForm = (e: FormEvent) => {
 
@@ -71,16 +79,19 @@ const AdmissionProcess = () => {
     };
 
     try {
-      let response = await axios(config);
+      let response: any = await axios(config);
+      window.location.replace(`${ELDJTWEBURL}/admisiones/${response.data.id}/archivos`)
       setLoading(false);
     } catch (error) {
-      
+      setModal({title: 'Error', message: 'Ocurrió un error', type: 'error'});
+      setOpenModal(true);
     }
 
   }
 
   return (
     <Layout location='admissions'>
+      <Modal open={openModal} onClose={() => setOpenModal(false)} onAccept={() => setOpenModal(false)} {...modal}></Modal>
       <Loader open={loading} onCloseLoader={() => console.log('close')}></Loader>
       {!loading && <div className=' mt-24 font-poppins w-1024 p-4'>
         <div className='text-center w-full '>
