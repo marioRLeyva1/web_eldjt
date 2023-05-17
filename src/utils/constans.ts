@@ -1,1 +1,2 @@
 export const ELDJTAPIURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dashboard-eldjt.vercel.app'
+export const ELDJTWEBURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://eldjt.com.mx'

@@ -20,6 +20,7 @@ import News from './screens/News/News';
 import Graduate from './screens/Graduate/Graduate';
 import Checkkout from './screens/Checkout/Checkout';
 import New from './screens/News/New';
+import Status from './screens/Checkout/Status';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -44,6 +45,7 @@ root.render(
         <Route path='/noticias/:url' element={<New/>}/>
         <Route path='/egresados' element={<Graduate/>}/>
         <Route path='/checkout' element={<Checkkout/>} />
+        <Route path='/checkout/status/:id' element={<Status/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
