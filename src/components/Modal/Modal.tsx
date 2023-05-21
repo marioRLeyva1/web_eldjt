@@ -44,9 +44,10 @@ export default function Modal(props: Modal) {
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div>
-                  <div className={`mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-${props.type === 'error' ? 'red' : 'green'}-100`}>
+                  <div className={`mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-${props.type === 'error' ? 'red' : props.type === 'success' ? 'green' : 'yellow'}-100`}>
                     {props.type === 'success' && <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />}
                     {props.type === 'error' && <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />}
+                    {props.type === 'warning' && <ExclamationTriangleIcon className="h-6 w-6 text-yellow-600" aria-hidden="true" />}
                   </div>
                   <div className="mt-3 text-center sm:mt-5">
                     <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">

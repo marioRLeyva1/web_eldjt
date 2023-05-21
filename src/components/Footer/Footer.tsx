@@ -1,7 +1,28 @@
 import React from 'react'
 import Input from '../Input/Input'
+import { ELDJTAPIURL } from '../../utils/constans';
+import axios from 'axios';
+import { Oval } from 'react-loader-spinner';
 
 const Footer = () => {
+
+  const [data, setData] = React.useState<any>({})
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [disabled, setDisabled] = React.useState<boolean>(false);
+
+  const onSendForm = async() => {
+    console.log('data', data);
+    let keys = Object.keys(data);
+    if(keys.length === 0) return
+    setLoading(true)
+    try {
+      const response = await axios.post(`${ELDJTAPIURL}/api/contacto`, data);
+      setLoading(false);
+      window.location.reload();
+    } catch (error) {
+      setLoading(false)
+    }
+  }
 
 
   return (
@@ -13,13 +34,33 @@ const Footer = () => {
             </div>
             <div className='flex flex-col gap-4 mt-5 sm:w-96'>
                 <h3 className='text-2xl text-center text-white'>Contáctanos</h3>
-                <Input type='text' placeholder={'Nombre Completo'} required={true}/>
-                <Input type='email' placeholder={'Correo Electrónico'} required={true}/>
-                <Input type='tel' placeholder={'Teléfono'} required={true}/>
-                <Input type='text' placeholder={'Ciudad'} required={true}/>
-                <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow' onClick={() => console.log('efef')}>
+                <input type='text' id='name' className='mx-5 p-2 border rounded drop-shadow' placeholder={'Nombre Completo'} required={true} onChange={(e) => setData({...data, [e.target.id]: e.target.value})}/>
+                <input type='email' id='email' className='mx-5 p-2 border rounded drop-shadow' placeholder={'Correo Electrónico'} required={true} onChange={(e) => setData({...data, [e.target.id]: e.target.value})}/>
+                <input type='tel' id='phone' className='mx-5 p-2 border rounded drop-shadow' placeholder={'Teléfono'} required={true} onChange={(e) => setData({...data, [e.target.id]: e.target.value})}/>
+                <input type='text' id='city' className='mx-5 p-2 border rounded drop-shadow' placeholder={'Ciudad'} required={true} onChange={(e) => setData({...data, [e.target.id]: e.target.value})}/>
+                <button className='mx-5 mb-5 border-LG p-2 bg-secondary rounded text-white font-bold drop-shadow' disabled={disabled} onClick={() => onSendForm()}>
+                  {
+                !loading ? 
+                <div>
                   <span>ENVIAR</span>
                   <span className='ml-2'>✉️</span>
+                </div>
+                :
+                <div className='flex w-full h-full m-auto justify-center items-center'>
+                  <Oval
+                  height={25}
+                  width={25}
+                  color="#FFE7D3"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                  ariaLabel='oval-loading'
+                  secondaryColor="white"
+                  strokeWidth={2}
+                  strokeWidthSecondary={2}
+                  />
+                </div>
+              }
                 </button>
             </div>
           </div>

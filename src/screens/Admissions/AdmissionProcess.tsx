@@ -80,7 +80,7 @@ const AdmissionProcess = () => {
 
     try {
       let response: any = await axios(config);
-      window.location.replace(`${ELDJTWEBURL}/admisiones/${response.data.id}/archivos`)
+      window.location.replace(`${ELDJTWEBURL}/admisiones/registro/${response.data.id}`);
       setLoading(false);
     } catch (error) {
       setModal({title: 'Error', message: 'Ocurrió un error', type: 'error'});
