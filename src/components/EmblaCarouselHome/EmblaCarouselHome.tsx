@@ -2,6 +2,7 @@ import React, {useEffect, useCallback} from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Arrow from '../../icons/arraow.svg'
 import ArrowShadow from '../../icons/arraow-shadow.svg'
+import { ELDJTWEBURL } from '../../utils/constans'
 
 const EmblaCarouselHome = (props: any) => {
  
@@ -23,7 +24,9 @@ const EmblaCarouselHome = (props: any) => {
 
     const onHandleClick = (e:any) => {
       if (e.target.id === '0') {        
+        console.log('e', e)
         props.onClickSlide1();
+        window.location.replace(`${ELDJTWEBURL}/licenciatura`)
       }
     }
   
