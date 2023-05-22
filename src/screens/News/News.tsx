@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout'
 import NewsCardDesktop from '../../components/NewsCard/NewsCardDesktop';
 import NewsCardMobile from '../../components/NewsCard/NewsCardMobile'
-import { ELDJTAPIURL } from '../../utils/constans';
+import { ELDJTAPIURL, ELDJTWEBURL } from '../../utils/constans';
 
 const News = () => {
 
@@ -38,7 +38,7 @@ const News = () => {
   }
 
   const onHandleClick = async (url: string) => {
-    navigate(`/noticias/${url}`)
+    window.location.replace(`${ELDJTWEBURL}/noticias/${url}`)
   }
 
 

@@ -13,7 +13,7 @@ import useOnScreen from '../../hooks/useOnSreen'
 import Header from '../../components/Header/Header'
 import { Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { ELDJTAPIURL } from '../../utils/constans'
+import { ELDJTAPIURL, ELDJTWEBURL } from '../../utils/constans'
 
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
         document.documentElement.scrollTop = 0;
         getNews();
     }, [])
-    const [news, setNews] = React.useState<{id: number; title: string; subtitle: string, img: string}[]>([]);
+    const [news, setNews] = React.useState<{id: number; title: string; subtitle: string, img: string, url:string}[]>([]);
     const [ready, setReady] = React.useState(false);
     const getNews = async () => {
         try {
@@ -96,6 +96,9 @@ const Home = () => {
         }
     }
     
+    const onHandleCard = (url:string) => {
+        window.location.replace(`${ELDJTWEBURL}/noticias/${url}`)
+    }
   return (
     <div className='flex items-center justify-center bg-white font-poppins'>
       <div className={`sm:flex sm:flex-col sm:items-center sm:justify-center w-full sm:w-full mt-20 sm:mt-16`}>
@@ -226,7 +229,7 @@ const Home = () => {
             <div className='w-full sm:-mt-4'>
                 {ready && <GenericCarousel slides={MOBILE_SLIDES}>
                     {news.map(item => 
-                        <Card title={item.title} subtitle={item.subtitle} img={item.img} id={item.id} key={item.id}/>   
+                        <Card title={item.title} subtitle={item.subtitle} img={item.img} id={item.id} key={item.id} onButtonClick={() => onHandleCard(item.url)}/>   
                     )}
                 </GenericCarousel>}
             </div>

@@ -5,7 +5,7 @@ const NewsCardDesktop = (props: any) => {
   
   return (
     <div className='flex items-center justify-center w-full h-128 rounded shadow-lg my-4 x-10 bg-slate-50 font-poppins max-h-40 cursor-pointer' onClick={() => props.onChange()}>
-      <div className='h-full w-72'>
+      <div className='h-full w-72 overflow-hidden'>
         <img src={props.img} className='rounded-t object-cover' />
       </div>
       <div className='w-full'>

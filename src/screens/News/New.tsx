@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
 import { ELDJTAPIURL } from '../../utils/constans';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const New = () => {
 
@@ -38,18 +39,18 @@ const New = () => {
     <Layout location='news'>
       {ready && <div className='flex flex-col mt-28 items-center justify-center w-1024 mb-4'>
           <div className=''>
-              <h1 className='text-3xl sm:text-5xl'>{newData.title}</h1>
+              <h1 className='text-3xl sm:text-4xl sm:mt-2 text-center'>{newData.title}</h1>
           </div>
-          <div className=''>
-              <h3 className='mt-5 text-xl text-gray-600'>{newData.subtitle}</h3>
+          <div className='mb-3'>
+              <h3 className='mt-5 sm:text-lg font-bold text-md text-center px-4 text-gray-600'>{newData.subtitle}</h3>
           </div>
-          <div className='hidden sm:block w-full p-10'>
+          <div className='block w-full sm:w-9/12 p-10'>
             <img src={newData.img} alt="eldjt" />
           </div>
-          <div className='sm:mt-10 mt-7 '>
-              <p className='flex flex-col text-justify px-8 gap-4 justify-center items-center'>
-                {newData.body}
-              </p>
+            <TextareaAutosize className='w-full resize-none flex flex-col text-justify px-8 gap-4 justify-center items-center'>
+              {newData.body}
+            </TextareaAutosize>
+          <div className='sm:mt-10 mt-7 h-full'>
               <div className='hover:scale-105 transition cursor-pointer' onClick={() => navigate('/admisiones')}>
                 <h2 className='text-3xl text-dark text-center mt-10'>👉 ¡Toma ya la decisión correcta!</h2>
                 <h5 className=' text-dark text-center '>No esperes más ⏳</h5>
