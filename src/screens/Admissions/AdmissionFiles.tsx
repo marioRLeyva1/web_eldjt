@@ -110,7 +110,7 @@ const AdmissionFiles = () => {
             <div className='w-full flex flex-col sm:gap-3 gap-7 mt-14'>
                 <div className='flex flex-col sm:flex-row justify-between'>
                     <p className='font-semibold'>Acta de nacimiento</p>
-                    <input type='file' id='acta de nacimiento' accept='.pdf' onChange={(e) => onHandleFile(e.target)}></input>
+                    <input type='file' id='acta_de_nacimiento' accept='.pdf' onChange={(e) => onHandleFile(e.target)}></input>
                 </div>
                 <div className='flex flex-col sm:flex-row justify-between'>
                     <p className='font-semibold'>CURP</p>
@@ -122,11 +122,11 @@ const AdmissionFiles = () => {
                 </div>
                 <div className='flex flex-col sm:flex-row justify-between'>
                     <p className='font-semibold'>Comprobante de domicilio</p>
-                    <input type='file' id='comprobante de domicilio' accept='.pdf' onChange={(e) => onHandleFile(e.target)}></input>
+                    <input type='file' id='comprobante_de_domicilio' accept='.pdf' onChange={(e) => onHandleFile(e.target)}></input>
                 </div>
                 <div className='flex flex-col sm:flex-row justify-between'>
                     <p className='font-semibold sm:w-96'>Certificado de Bachillerato o su equivalente en el Sistema Educativo Nacional</p>
-                    <input type='file' id='certificado escolar' accept='.pdf' onChange={(e) => onHandleFile(e.target)}></input>
+                    <input type='file' id='certificado_escolar' accept='.pdf' onChange={(e) => onHandleFile(e.target)}></input>
                 </div>
             </div>
             <div className="mt-14 flex items-center justify-center gap-x-6">
@@ -137,7 +137,7 @@ const AdmissionFiles = () => {
                 >
                 Enviar
                 </button>
-          </div>
+            </div>
 
         </div>}
         {empty &&
